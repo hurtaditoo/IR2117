@@ -8,8 +8,10 @@ int main(){
         std::cin >> a;
     } while (a < 1);
     
-    std::cout << "Enter b number >=1: ";
-    std::cin >> b;
+    do {
+        std::cout << "Enter b number >=1: ";
+        std::cin >> b;
+    } while (b < 1);
     
     int sum = 0;
     for(int i = a; i <= b; i++) {
