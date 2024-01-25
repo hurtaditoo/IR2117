@@ -3,7 +3,7 @@
 
 int main() {
 
-    int a, b, c;
+    double a, b, c;
 
     std::cout << "Solving a quadratic ecuation" << std::endl;
     
@@ -16,7 +16,7 @@ int main() {
     std::cout << "Coefficient C: ";
     std::cin >> c;
 
-    int discriminante = (b * b) - (4 * a * c);
+    double discriminante = (b * b) - (4 * a * c);
 
     if (discriminante > 0) {
         double sol1 = (-b + std::sqrt(discriminante)) / (2 * a);
@@ -29,7 +29,7 @@ int main() {
         std::cout << "One real solution: " << sol << std::endl;
     }
     else {
-        std::cout << "No real solutions." << std::endl;
+        std::cout << "Complex solutions: " << (-b/(2*a)) << " + " << (sqrt(discriminante)/(2*a)) << "i and " << (-b/(2*a)) << " - << (sqrt(discriminante)/(2*a)) << "i" << std::endl;
     } 
 
     return 0;
