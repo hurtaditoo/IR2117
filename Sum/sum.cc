@@ -18,7 +18,7 @@ int main() {
 			std::cin >> number;
 		}
     
-    std::cout << "The sum from 1 to " << number << " is: " << suma(number) << std::endl;
+    std::cout << "The sum from 1 to " << number << " is " << suma(number) << std::endl;
 
     return 0; 
 }
