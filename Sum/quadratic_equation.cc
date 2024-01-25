@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <complex>
 
 int main() {
 
@@ -29,7 +30,11 @@ int main() {
         std::cout << "One real solution: " << sol << std::endl;
     }
     else {
-        std::cout << "Complex solutions: " << (-b/(2*a)) << " + " << (sqrt(discriminante)/(2*a)) << "i and " << (-b/(2*a)) << " - << (sqrt(discriminante)/(2*a)) << "i" << std::endl;
+        std::complex<double> complex = std::sqrt(-discriminante);
+        std::complex<double> complex1 = (-b + complex) / (2 * a);
+        std::complex<double> complex2 = (-b - complex) / (2 * a);
+
+        std::cout << "Complex solutions: " << complex1 << " and " << complex2 << std::endl;
     } 
 
     return 0;
