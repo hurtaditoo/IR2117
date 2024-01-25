@@ -3,8 +3,11 @@
 int main(){
     int a, b;
     
-    std::cout << "Enter a number >=1: ";
-    std::cin >> a;
+    do {
+        std::cout << "Enter a number >=1: ";
+        std::cin >> a;
+    } while (a < 1);
+    
     std::cout << "Enter b number >=1: ";
     std::cin >> b;
     
