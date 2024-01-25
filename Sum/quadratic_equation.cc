@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 int main() {
 
@@ -15,9 +16,16 @@ int main() {
     std::cout << "Coefficient C: ";
     std::cin >> c;
 
-    int solution = 0;
+    int discriminante = (b * b) - (4 * a * c);
 
-    std::cout << "The solution is: " << solution << std::endl;
+    if(discriminante>=0) {
+
+        double sol1 = (-b + std::sqrt(discriminante)) / (2 * a);
+        double sol2 = (-b - std::sqrt(discriminante)) / (2 * a);
+
+        std::cout << "Two solutions: " << sol1 << " and " << sol2 << std::endl;
+
+    }
 
     return 0;
 }
