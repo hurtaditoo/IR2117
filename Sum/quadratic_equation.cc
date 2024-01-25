@@ -18,13 +18,14 @@ int main() {
 
     int discriminante = (b * b) - (4 * a * c);
 
-    if(discriminante>=0) {
-
+    if (discriminante>=0) {
         double sol1 = (-b + std::sqrt(discriminante)) / (2 * a);
         double sol2 = (-b - std::sqrt(discriminante)) / (2 * a);
 
         std::cout << "Two solutions: " << sol1 << " and " << sol2 << std::endl;
-
+    }    
+    else {
+        std::cout << "There is no solution" << std::endl;
     }
 
     return 0;
