@@ -13,10 +13,10 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> number;
     
-    if (number <= 1) {
-        std::cerr << "The number should be greater than 1" << std::endl;
-        return 1;
-    }
+    while (number <= 0) {
+			std::cout << "Enter a number: ";
+			std::cin >> number;
+		}
     
     std::cout << "The sum from 1 to " << number << " is: " << suma(number) << std::endl;
 
