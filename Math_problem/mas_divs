@@ -3,11 +3,23 @@
 
 int main(){
 
-    int n, divisores, contador = 0, mayor = 0;
+    int n, divisores, contador = 1, mayor;
 
     std::cout << "Introduce un número entero: ";
     std::cin >> n;
 
+    for (int i=1; i<=n; ++i){
+        divisores = 1;
+        for(int j=1; j<=i; ++j){
+            if (i%j == 0){
+                divisores++;
+            }
+        }
+        if (divisores > contador){
+            contador = divisores;
+            mayor = i;
+        }
+    }
 
     std::cout << "El número con más divisores es: " << mayor << " (tiene " << contador << " divisores)" << std::endl;
     return 0;
