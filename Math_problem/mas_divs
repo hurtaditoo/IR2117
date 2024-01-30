@@ -1,0 +1,14 @@
+#include <iostream>
+#include "misfunciones.hpp"
+
+int main(){
+
+    int n, divisores, contador = 0, mayor = 0;
+
+    std::cout << "Introduce un número entero: ";
+    std::cin >> n;
+
+
+    std::cout << "El número con más divisores es: " << mayor << " (tiene " << contador << " divisores)" << std::endl;
+    return 0;
+}
