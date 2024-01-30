@@ -1,22 +1,28 @@
 #include <iostream>
 #include "misfunciones.hpp"
 
+int CountDivisors(int n) {
+    int divisors = 1;
+    for(int i=1; i<=n; ++i){
+        if (n%i == 0){
+            divisors++;
+        }
+    }
+    return divisors;
+}
+
 int main(){
 
-    int n, divisores, contador = 1, mayor;
+    int n, divisors, count = 1, max;
 
     std::cout << "Introduce un número entero: ";
     std::cin >> n;
 
     for (int i=1; i<=n; ++i){
-        divisores = 1;
-        for(int j=1; j<=i; ++j){
-            if (i%j == 0){
-                divisores++;
-            }
-        }
+        divisors = CountDivisors(i);
+
     }
 
-    std::cout << "El número con más divisores es: " << mayor << " (tiene " << contador << " divisores)" << std::endl;
+    std::cout << "El número con más divisores es: " << max << " (tiene " << count << " divisores)" << std::endl;
     return 0;
 }
