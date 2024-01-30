@@ -20,7 +20,10 @@ int main(){
 
     for (int i=1; i<=n; ++i){
         divisors = CountDivisors(i);
-
+        if (divisors > count){
+            count = divisors;
+            max = i;
+        }
     }
 
     std::cout << "El número con más divisores es: " << max << " (tiene " << count << " divisores)" << std::endl;
