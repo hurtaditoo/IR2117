@@ -20,7 +20,7 @@ int main(){
 
     for (int i=1; i<=n; ++i){
         divisors = CountDivisors(i);
-        if (divisors > count){
+        if (divisors >= count){
             count = divisors;
             max = i;
         }
