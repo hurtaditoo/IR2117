@@ -15,10 +15,6 @@ int main(){
                 divisores++;
             }
         }
-        if (divisores > contador){
-            contador = divisores;
-            mayor = i;
-        }
     }
 
     std::cout << "El número con más divisores es: " << mayor << " (tiene " << contador << " divisores)" << std::endl;
