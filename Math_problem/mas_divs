@@ -15,7 +15,7 @@ int main(){
 
     int n, divisors, count = 1, max;
 
-    std::cout << "Introduce un número entero: ";
+    std::cout << "Enter a number: ";
     std::cin >> n;
 
     for (int i=1; i<=n; ++i){
@@ -26,6 +26,6 @@ int main(){
         }
     }
 
-    std::cout << "El número con más divisores es: " << max << " (tiene " << count << " divisores)" << std::endl;
+    std::cout << "The number with most divisors is " << max << " (it has " << count << ")" << std::endl;
     return 0;
 }
