@@ -19,23 +19,42 @@ int main() {
 
     double discriminant = (b * b) - (4 * a * c);
 
-    if (discriminant > 0) {
+    if (discriminant > 0)
+    {
         double sol1 = (-b + std::sqrt(discriminant)) / (2 * a);
         double sol2 = (-b - std::sqrt(discriminant)) / (2 * a);
 
         std::cout << "Two solutions: " << sol1 << " and " << sol2 << std::endl;
     } 
-    else if (discriminant == 0) {
+    else if (discriminant == 0)
+    {
         double sol = -b / (2 * a);
         std::cout << "One real solution: " << sol << std::endl;
     }
-    else {
+    else
+    {
 		std::complex<double> complex_discriminant = (b * b) - (4 * a * c);
         std::complex<double> complex = std::sqrt(complex_discriminant);
         std::complex<double> sol_complex1 = (-b + complex) / (2 * a);
         std::complex<double> sol_complex2 = (-b - complex) / (2 * a);
 
-        std::cout << "Complex solutions-> " << std::imag(sol_complex1) << "i+" << std::real(sol_complex1) << " and " <<std::imag(sol_complex2) << "i" << std::real(sol_complex2) << std::endl;
+        if (std::real(sol_complex1) != 0)
+        {
+            std::cout << "Complex solutions-> " << std::imag(sol_complex1) << "i+(" << std::real(sol_complex1) << ") and ";
+        }
+        else
+        {
+            std::cout << "Complex solutions: " << std::imag(sol_complex1) << "i and ";
+        }
+        if (std::real(sol_complex2) != 0)
+        {
+            std::cout << std::imag(sol_complex2) << "i" << std::real(sol_complex2) << std::endl;
+        }
+        else
+        {
+            std::cout << std::imag(sol_complex2) << "i" << std::endl;
+        }
+
     } 
 
     return 0;
