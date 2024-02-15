@@ -1,8 +1,7 @@
 #include <iostream>
-#include "misfunciones.hpp"
 
 int CountDivisors(int n) {
-    int divisors = 1;
+    int divisors = 0;
     for(int i=1; i<=n; ++i){
         if (n%i == 0){
             divisors++;
@@ -12,9 +11,7 @@ int CountDivisors(int n) {
 }
 
 int main(){
-
-    int n, divisors, count = 1, max;
-
+    int n, divisors, count = 0, max;
     std::cout << "Enter a number: ";
     std::cin >> n;
 
