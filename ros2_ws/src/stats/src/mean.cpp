@@ -2,18 +2,25 @@
 #include "std_msgs/msg/int32.hpp"
 #include <iostream>
 
-void topic_callback(const std_msgs::msg::String::SharedPtr msg)
+int count = 0;
+std::shared_ptr< rclcpp::Publisher<std_msgs::msg::Int32> > publisher;
+
+void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {
-    std::cout: << msg->data << std:endl;
+    sum += msg->data;
+	std_msgs::msg::Int32 out_msg;
+	out_msg.data = sum;
+	publisher->publish(out_msg);
 }
 
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    auto node = rclcpp::Node::make_shared("subscriber");
+    auto node = rclcpp::Node::make_shared("count");
     auto subscription = 
-		node->create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
+		node->create_subscription<std_msgs::msg::Int32>("number", 10, topic_callback);
+	publisher = node->create_publisher<std_msgs::msg::Int32>("count", 10);
 	rclcpp::spin(node);
  	rclcpp::shutdown();
-  return 0;
+    return 0;
 }
