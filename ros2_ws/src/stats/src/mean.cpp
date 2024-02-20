@@ -7,7 +7,9 @@ std::shared_ptr< rclcpp::Publisher<std_msgs::msg::Int32> > publisher;
 
 void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {
+    msg->data = count;
     count += 1;
+    std::cout << msg->data << std::endl;
     publisher->publish(count);
 }
 
