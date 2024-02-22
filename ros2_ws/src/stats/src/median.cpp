@@ -1,12 +1,17 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/int32.hpp"
 #include <iostream>
+#include <vector>
 
 std::vector<int> numbers;
 
 void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {
-	std::cout << msg->data << std::endl;
+	numbers.push_back(msg->data);
+	for (std::size_t i=0; i < numbers.size(); i++) {
+  	std::cout << numbers[i] << std::endl;
+  }
+  //std::cout << std::endl; para que salga en pirámide
 }
 
 int main(int argc, char * argv[])
@@ -19,3 +24,4 @@ int main(int argc, char * argv[])
  	rclcpp::shutdown();
   return 0;
 }
+
