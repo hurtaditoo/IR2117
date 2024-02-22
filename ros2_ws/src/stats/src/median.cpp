@@ -8,10 +8,11 @@ std::vector<int> numbers;
 void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {
 	numbers.push_back(msg->data);
-	for (std::size_t i=0; i < numbers.size(); i++) {
-  	std::cout << numbers[i] << std::endl;
+  std::sort(numbers.begin(), numbers.end());
+  for (std::size_t i=0; i < numbers.size(); i++) {
+  	std::cout << numbers[i] << " ";
   }
-  //std::cout << std::endl; para que salga en pirámide
+  std::cout << std::endl; 
 }
 
 int main(int argc, char * argv[])
