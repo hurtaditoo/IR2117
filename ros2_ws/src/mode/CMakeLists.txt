@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(stats)
+project(mode)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -19,22 +19,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
-find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
-
-add_executable(mean src/mean.cpp)
-add_executable(median src/median.cpp)
-ament_target_dependencies(mean rclcpp std_msgs)
-ament_target_dependencies(median rclcpp std_msgs)
-ament_target_dependencies(mode rclcpp std_msgs)
-
-install(TARGETS 
-	mean
-	median
-	mode
-	DESTINATION lib/${PROJECT_NAME}
-)
-
+# find_package(<dependency> REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
