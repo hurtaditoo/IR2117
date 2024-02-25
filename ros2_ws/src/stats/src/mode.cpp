@@ -9,14 +9,18 @@
 
 std::vector<float> numbers;
 std::map<int, int> dic;
+int max = 0;
 
 rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr publisher;
 
 void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {
+	numbers.push_back(msg->data);
 	int number = msg->data;
 	for (std::size_t i=0; i < numbers.size(); i++) {
-		numbers[number]++;
+		if (dic[numbers[i] > max) {
+			max = numbers[number]++;
+		}
 	}
 
 	std_msgs::msg::Float32 mode_msg;
@@ -28,7 +32,7 @@ int main(int argc, char * argv[])
 {
 	rclcpp::init(argc, argv);
 	auto node = rclcpp::Node::make_shared("mode");
-	auto subscription = 
+	auto subscription =
 		node->create_subscription<std_msgs::msg::Int32>("number", 10, topic_callback);
   publisher = node->create_publisher<std_msgs::msg::Float32>("mode", 10);
 	rclcpp::spin(node);
