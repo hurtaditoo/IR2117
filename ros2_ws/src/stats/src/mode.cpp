@@ -15,7 +15,9 @@ rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr publisher;
 void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {
 	int number = msg->data;
+	for (std::size_t i=0; i < numbers.size(); i++) {
 		numbers[number]++;
+	}
 
 	std_msgs::msg::Float32 mode_msg;
   mode_msg.data = numbers[number];
