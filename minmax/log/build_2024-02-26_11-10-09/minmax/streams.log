@@ -1,0 +1,17 @@
+[0.262s] Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4
+[0.299s] [35m[1mScanning dependencies of target min[0m
+[0.325s] [ 50%] [32mBuilding CXX object CMakeFiles/min.dir/src/min.cpp.o[0m
+[1.471s] [01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:[m[K In function ‘[01m[Kvoid topic_callback(std_msgs::msg::Int32_<std::allocator<void> >::SharedPtr)[m[K’:
+[1.472s] [01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:17:1:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+[1.472s]    17 | [01;31m[K{[m[K
+[1.472s]       | [01;31m[K^[m[K
+[1.472s] [01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:26:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[1.472s]    26 | [01;31m[K}[m[K
+[1.472s]       | [01;31m[K^[m[K
+[1.472s] [01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:10:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[1.472s]    10 | [01;36m[K{[m[K
+[1.472s]       | [01;36m[K^[m[K
+[1.803s] make[2]: *** [CMakeFiles/min.dir/build.make:63: CMakeFiles/min.dir/src/min.cpp.o] Error 1
+[1.803s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/min.dir/all] Error 2
+[1.804s] make: *** [Makefile:141: all] Error 2
+[1.807s] Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4

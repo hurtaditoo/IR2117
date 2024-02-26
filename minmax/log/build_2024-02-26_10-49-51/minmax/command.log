@@ -1,0 +1,6 @@
+Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/usuario/Documentos/GitHub/IR2117/minmax -DCMAKE_INSTALL_PREFIX=/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax
+Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/usuario/Documentos/GitHub/IR2117/minmax -DCMAKE_INSTALL_PREFIX=/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax
+Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4
+Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4
+Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax
+Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax

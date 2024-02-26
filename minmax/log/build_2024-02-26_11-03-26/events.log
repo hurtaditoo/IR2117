@@ -1,0 +1,91 @@
+[0.000000] (-) TimerEvent: {}
+[0.000159] (minmax) JobQueued: {'identifier': 'minmax', 'dependencies': OrderedDict()}
+[0.000207] (minmax) JobStarted: {'identifier': 'minmax'}
+[0.099997] (-) TimerEvent: {}
+[0.201296] (-) TimerEvent: {}
+[0.247605] (minmax) JobProgress: {'identifier': 'minmax', 'progress': 'cmake'}
+[0.248380] (minmax) JobProgress: {'identifier': 'minmax', 'progress': 'build'}
+[0.249290] (minmax) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax', '--', '-j4', '-l4'], 'cwd': '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'usuario'), ('SSH_AGENT_PID', '4222'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'ibus'), ('HOME', '/home/usuario'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '4040'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=28bcc639ab868f5d1a87df8765dc5214'), ('COLORTERM', 'truecolor'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/usuario/Documentos/GitHub/IR2117/minmax/install'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'usuario'), ('JOURNAL_STREAM', '8:59893'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'usuario'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/xilinx/Vitis_HLS/2022.2/bin/:/xilinx/Vivado/2022.2/bin/:/home/usuario/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/labsop03.act.uji.es:@/tmp/.ICE-unix/4302,unix/labsop03.act.uji.es:/tmp/.ICE-unix/4302'), ('INVOCATION_ID', '45adb850f7f54608b499563bfedb1b5d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ae383b88_1a23_418e_a6eb_7d0f94e0dceb'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'es_ES.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.186'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax'), ('LC_ALL', 'es_ES.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=28bcc639ab868f5d1a87df8765dc5214'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax:/opt/ros/foxy')]), 'shell': False}
+[0.289893] (minmax) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target min\x1b[0m\n'}
+[0.301381] (-) TimerEvent: {}
+[0.316430] (minmax) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/min.dir/src/min.cpp.o\x1b[0m\n'}
+[0.401511] (-) TimerEvent: {}
+[0.501793] (-) TimerEvent: {}
+[0.602074] (-) TimerEvent: {}
+[0.702351] (-) TimerEvent: {}
+[0.802626] (-) TimerEvent: {}
+[0.902926] (-) TimerEvent: {}
+[1.003209] (-) TimerEvent: {}
+[1.103487] (-) TimerEvent: {}
+[1.203762] (-) TimerEvent: {}
+[1.304035] (-) TimerEvent: {}
+[1.404305] (-) TimerEvent: {}
+[1.504581] (-) TimerEvent: {}
+[1.604860] (-) TimerEvent: {}
+[1.705142] (-) TimerEvent: {}
+[1.805422] (-) TimerEvent: {}
+[1.905748] (-) TimerEvent: {}
+[2.006022] (-) TimerEvent: {}
+[2.106299] (-) TimerEvent: {}
+[2.206584] (-) TimerEvent: {}
+[2.306859] (-) TimerEvent: {}
+[2.407133] (-) TimerEvent: {}
+[2.507427] (-) TimerEvent: {}
+[2.607706] (-) TimerEvent: {}
+[2.707982] (-) TimerEvent: {}
+[2.808259] (-) TimerEvent: {}
+[2.908537] (-) TimerEvent: {}
+[3.008804] (-) TimerEvent: {}
+[3.109071] (-) TimerEvent: {}
+[3.209341] (-) TimerEvent: {}
+[3.309610] (-) TimerEvent: {}
+[3.409883] (-) TimerEvent: {}
+[3.510155] (-) TimerEvent: {}
+[3.610423] (-) TimerEvent: {}
+[3.710695] (-) TimerEvent: {}
+[3.810966] (-) TimerEvent: {}
+[3.911238] (-) TimerEvent: {}
+[4.011508] (-) TimerEvent: {}
+[4.111777] (-) TimerEvent: {}
+[4.212044] (-) TimerEvent: {}
+[4.312311] (-) TimerEvent: {}
+[4.412584] (-) TimerEvent: {}
+[4.512853] (-) TimerEvent: {}
+[4.613135] (-) TimerEvent: {}
+[4.713413] (-) TimerEvent: {}
+[4.813665] (-) TimerEvent: {}
+[4.829199] (minmax) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable min\x1b[0m\n'}
+[4.913754] (-) TimerEvent: {}
+[5.014010] (-) TimerEvent: {}
+[5.114305] (-) TimerEvent: {}
+[5.214650] (-) TimerEvent: {}
+[5.265862] (minmax) StdoutLine: {'line': b'[100%] Built target min\n'}
+[5.275713] (minmax) CommandEnded: {'returncode': 0}
+[5.296196] (minmax) JobProgress: {'identifier': 'minmax', 'progress': 'install'}
+[5.307174] (minmax) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax'], 'cwd': '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'usuario'), ('SSH_AGENT_PID', '4222'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('QT4_IM_MODULE', 'ibus'), ('HOME', '/home/usuario'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '4040'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=28bcc639ab868f5d1a87df8765dc5214'), ('COLORTERM', 'truecolor'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu.mandatory.path'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/usuario/Documentos/GitHub/IR2117/minmax/install'), ('ROS_DISTRO', 'foxy'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'usuario'), ('JOURNAL_STREAM', '8:59893'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu.default.path'), ('USERNAME', 'usuario'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/xilinx/Vitis_HLS/2022.2/bin/:/xilinx/Vivado/2022.2/bin/:/home/usuario/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/labsop03.act.uji.es:@/tmp/.ICE-unix/4302,unix/labsop03.act.uji.es:/tmp/.ICE-unix/4302'), ('INVOCATION_ID', '45adb850f7f54608b499563bfedb1b5d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ae383b88_1a23_418e_a6eb_7d0f94e0dceb'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'es_ES.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.186'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax'), ('LC_ALL', 'es_ES.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'ibus'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=28bcc639ab868f5d1a87df8765dc5214'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax:/opt/ros/foxy')]), 'shell': False}
+[5.314738] (-) TimerEvent: {}
+[5.315078] (minmax) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.315340] (minmax) StdoutLine: {'line': b'-- Installing: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/min\n'}
+[5.317171] (minmax) StdoutLine: {'line': b'-- Set runtime path of "/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/min" to ""\n'}
+[5.317488] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/package_run_dependencies/minmax\n'}
+[5.317706] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/parent_prefix_path/minmax\n'}
+[5.317851] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.sh\n'}
+[5.317930] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.dsv\n'}
+[5.318009] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.sh\n'}
+[5.318100] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.dsv\n'}
+[5.318185] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.bash\n'}
+[5.318271] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.sh\n'}
+[5.318332] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.zsh\n'}
+[5.318392] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.dsv\n'}
+[5.318451] (minmax) StdoutLine: {'line': b'-- Installing: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.dsv\n'}
+[5.318556] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/packages/minmax\n'}
+[5.318741] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig.cmake\n'}
+[5.318820] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig-version.cmake\n'}
+[5.318881] (minmax) StdoutLine: {'line': b'-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.xml\n'}
+[5.320483] (minmax) CommandEnded: {'returncode': 0}
+[5.415614] (-) TimerEvent: {}
+[5.516159] (-) TimerEvent: {}
+[5.616761] (-) TimerEvent: {}
+[5.718135] (-) TimerEvent: {}
+[5.758997] (minmax) JobEnded: {'identifier': 'minmax', 'rc': 0}
+[5.759745] (-) EventReactorShutdown: {}

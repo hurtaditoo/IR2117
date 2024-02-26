@@ -1,0 +1,16 @@
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/min
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/package_run_dependencies/minmax
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/parent_prefix_path/minmax
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.sh
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.dsv
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.sh
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.dsv
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.bash
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.sh
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.zsh
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.dsv
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.dsv
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/packages/minmax
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig.cmake
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig-version.cmake
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.xml

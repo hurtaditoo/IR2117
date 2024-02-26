@@ -1,0 +1,4 @@
+source;share/minmax/local_setup.bash
+source;share/minmax/local_setup.dsv
+source;share/minmax/local_setup.sh
+source;share/minmax/local_setup.zsh

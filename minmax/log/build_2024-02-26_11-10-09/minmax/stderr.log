@@ -1,0 +1,13 @@
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:[m[K In function ‘[01m[Kvoid topic_callback(std_msgs::msg::Int32_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:17:1:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+   17 | [01;31m[K{[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:26:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+   26 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:10:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   10 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+make[2]: *** [CMakeFiles/min.dir/build.make:63: CMakeFiles/min.dir/src/min.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/min.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
