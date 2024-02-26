@@ -23,7 +23,7 @@ void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 	}
 
 	std_msgs::msg::Int32 min_msg;
-  min_msg.data = min;
+  min_msg.data = numbers[number];
 	publisher->publish(min_msg);
 }
 

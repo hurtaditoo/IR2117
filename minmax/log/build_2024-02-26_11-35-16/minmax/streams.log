@@ -1,0 +1,28 @@
+[0.257s] Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4
+[0.298s] [35m[1mScanning dependencies of target max[0m
+[0.313s] [ 50%] Built target min
+[0.328s] [ 75%] [32mBuilding CXX object CMakeFiles/max.dir/src/max.cpp.o[0m
+[4.966s] [100%] [32m[1mLinking CXX executable max[0m
+[5.969s] [100%] Built target max
+[5.981s] Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4
+[6.013s] Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax
+[6.021s] -- Install configuration: ""
+[6.021s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/min
+[6.021s] -- Installing: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/max
+[6.023s] -- Set runtime path of "/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/max" to ""
+[6.023s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/package_run_dependencies/minmax
+[6.023s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/parent_prefix_path/minmax
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.sh
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.dsv
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.sh
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.dsv
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.bash
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.sh
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.zsh
+[6.024s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.dsv
+[6.024s] -- Installing: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.dsv
+[6.025s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/packages/minmax
+[6.025s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig.cmake
+[6.025s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig-version.cmake
+[6.025s] -- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.xml
+[6.027s] Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax

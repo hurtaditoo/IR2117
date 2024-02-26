@@ -1,0 +1,24 @@
+[35m[1mScanning dependencies of target max[0m
+[ 50%] Built target min
+[ 75%] [32mBuilding CXX object CMakeFiles/max.dir/src/max.cpp.o[0m
+[100%] [32m[1mLinking CXX executable max[0m
+[100%] Built target max
+-- Install configuration: ""
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/min
+-- Installing: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/max
+-- Set runtime path of "/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/max" to ""
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/package_run_dependencies/minmax
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/parent_prefix_path/minmax
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.sh
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.sh
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/path.dsv
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.bash
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.sh
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.zsh
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/local_setup.dsv
+-- Installing: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.dsv
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/packages/minmax
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig.cmake
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/cmake/minmaxConfig-version.cmake
+-- Up-to-date: /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.xml

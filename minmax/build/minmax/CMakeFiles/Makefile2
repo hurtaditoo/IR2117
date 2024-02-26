@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/max.dir/all
 all: CMakeFiles/min.dir/all
 
 .PHONY : all
@@ -63,11 +64,39 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/max.dir/clean
 clean: CMakeFiles/min.dir/clean
 clean: CMakeFiles/minmax_uninstall.dir/clean
 clean: CMakeFiles/uninstall.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/max.dir
+
+# All Build rule for target.
+CMakeFiles/max.dir/all:
+	$(MAKE) -f CMakeFiles/max.dir/build.make CMakeFiles/max.dir/depend
+	$(MAKE) -f CMakeFiles/max.dir/build.make CMakeFiles/max.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles --progress-num=1,2 "Built target max"
+.PHONY : CMakeFiles/max.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/max.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/max.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles 0
+.PHONY : CMakeFiles/max.dir/rule
+
+# Convenience name for target.
+max: CMakeFiles/max.dir/rule
+
+.PHONY : max
+
+# clean rule for target.
+CMakeFiles/max.dir/clean:
+	$(MAKE) -f CMakeFiles/max.dir/build.make CMakeFiles/max.dir/clean
+.PHONY : CMakeFiles/max.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/min.dir
@@ -76,7 +105,7 @@ clean: CMakeFiles/uninstall.dir/clean
 CMakeFiles/min.dir/all:
 	$(MAKE) -f CMakeFiles/min.dir/build.make CMakeFiles/min.dir/depend
 	$(MAKE) -f CMakeFiles/min.dir/build.make CMakeFiles/min.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles --progress-num=1,2 "Built target min"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles --progress-num=3,4 "Built target min"
 .PHONY : CMakeFiles/min.dir/all
 
 # Build rule for subdir invocation for target.

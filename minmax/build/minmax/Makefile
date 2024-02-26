@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named max
+
+# Build rule for target.
+max: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 max
+.PHONY : max
+
+# fast build rule for target.
+max/fast:
+	$(MAKE) -f CMakeFiles/max.dir/build.make CMakeFiles/max.dir/build
+.PHONY : max/fast
+
+#=============================================================================
 # Target rules for targets named min
 
 # Build rule for target.
@@ -205,6 +218,33 @@ uninstall: cmake_check_build_system
 uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
+
+src/max.o: src/max.cpp.o
+
+.PHONY : src/max.o
+
+# target to build an object file
+src/max.cpp.o:
+	$(MAKE) -f CMakeFiles/max.dir/build.make CMakeFiles/max.dir/src/max.cpp.o
+.PHONY : src/max.cpp.o
+
+src/max.i: src/max.cpp.i
+
+.PHONY : src/max.i
+
+# target to preprocess a source file
+src/max.cpp.i:
+	$(MAKE) -f CMakeFiles/max.dir/build.make CMakeFiles/max.dir/src/max.cpp.i
+.PHONY : src/max.cpp.i
+
+src/max.s: src/max.cpp.s
+
+.PHONY : src/max.s
+
+# target to generate assembly for a file
+src/max.cpp.s:
+	$(MAKE) -f CMakeFiles/max.dir/build.make CMakeFiles/max.dir/src/max.cpp.s
+.PHONY : src/max.cpp.s
 
 src/min.o: src/min.cpp.o
 
@@ -246,9 +286,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... max"
 	@echo "... min"
 	@echo "... minmax_uninstall"
 	@echo "... uninstall"
+	@echo "... src/max.o"
+	@echo "... src/max.i"
+	@echo "... src/max.s"
 	@echo "... src/min.o"
 	@echo "... src/min.i"
 	@echo "... src/min.s"

@@ -5,6 +5,7 @@
 /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles/rebuild_cache.dir
 /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles/edit_cache.dir
 /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles/test.dir
+/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles/max.dir
 /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles/min.dir
 /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles/minmax_uninstall.dir
 /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax/CMakeFiles/uninstall.dir

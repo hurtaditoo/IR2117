@@ -1,4 +1,5 @@
 /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/min
+/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/minmax/max
 /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/package_run_dependencies/minmax
 /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/ament_index/resource_index/parent_prefix_path/minmax
 /home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/environment/ament_prefix_path.sh
