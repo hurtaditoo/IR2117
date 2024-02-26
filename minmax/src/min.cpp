@@ -8,20 +8,22 @@
 
 std::vector<int> numbers;
 std::map<int, int> dic;
-int min = 0;
-std::shared_ptr< rclcpp::Publisher<std_msgs::msg::Int32> > publisher;
+
+rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr publisher;
 
 void topic_callback(const std_msgs::msg::Int32::SharedPtr msg)
 {	
 	numbers.push_back(msg->data);
 	int number = msg->data;
+	int min = number;
 	for (std::size_t i=0; i < numbers.size(); i++) {
   	if (dic[numbers[i]] < min) {
 			min = numbers[number]++;
 		}
 	}
+
 	std_msgs::msg::Int32 min_msg;
-  min_msg.data = numbers[number];
+  min_msg.data = min;
 	publisher->publish(min_msg);
 }
 

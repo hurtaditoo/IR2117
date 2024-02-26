@@ -1,0 +1,104 @@
+[3.295s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[3.295s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f3e394f0580>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=4, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f3e394f0580>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f3e390790a0>)
+[3.430s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[3.430s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[3.430s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[3.430s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[3.430s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[3.430s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[3.430s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/usuario/Documentos/GitHub/IR2117/minmax'
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[3.431s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[3.444s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'minmax'
+[3.445s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[3.445s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[3.445s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[3.445s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[3.445s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[3.740s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[3.740s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[3.862s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/usuario/Documentos/GitHub/IR2117/minmax/install
+[3.919s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 270 installed packages in /opt/ros/foxy
+[3.920s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[4.092s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'cmake_args' from command line to 'None'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'cmake_target' from command line to 'None'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'cmake_clean_cache' from command line to 'False'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'cmake_clean_first' from command line to 'False'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'cmake_force_configure' from command line to 'False'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'ament_cmake_args' from command line to 'None'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'catkin_cmake_args' from command line to 'None'
+[4.093s] Level 5:colcon.colcon_core.verb:set package 'minmax' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.093s] DEBUG:colcon.colcon_core.verb:Building package 'minmax' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax', 'merge_install': False, 'path': '/home/usuario/Documentos/GitHub/IR2117/minmax', 'symlink_install': False, 'test_result_base': None}
+[4.148s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[4.204s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[4.204s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/usuario/Documentos/GitHub/IR2117/minmax' with build type 'ament_cmake'
+[4.204s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/usuario/Documentos/GitHub/IR2117/minmax'
+[4.264s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[4.265s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.265s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.465s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4
+[9.607s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax -- -j4 -l4
+[9.639s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax
+[9.651s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(minmax)
+[9.652s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/usuario/Documentos/GitHub/IR2117/minmax/build/minmax
+[9.712s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax' for CMake module files
+[9.712s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax' for CMake config files
+[9.713s] Level 1:colcon.colcon_core.shell:create_environment_hook('minmax', 'cmake_prefix_path')
+[9.770s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/hook/cmake_prefix_path.ps1'
+[9.771s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/hook/cmake_prefix_path.dsv'
+[9.772s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/hook/cmake_prefix_path.sh'
+[9.773s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib'
+[9.773s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/bin'
+[9.773s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/pkgconfig/minmax.pc'
+[9.773s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/python3.8/site-packages'
+[9.774s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/bin'
+[9.831s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.ps1'
+[9.832s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.dsv'
+[9.832s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.sh'
+[9.833s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.bash'
+[9.833s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.zsh'
+[9.834s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/colcon-core/packages/minmax)
+[9.915s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(minmax)
+[9.973s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax' for CMake module files
+[9.973s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax' for CMake config files
+[9.973s] Level 1:colcon.colcon_core.shell:create_environment_hook('minmax', 'cmake_prefix_path')
+[10.033s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/hook/cmake_prefix_path.ps1'
+[10.034s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/hook/cmake_prefix_path.dsv'
+[10.034s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/hook/cmake_prefix_path.sh'
+[10.035s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib'
+[10.035s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/bin'
+[10.035s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/pkgconfig/minmax.pc'
+[10.035s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/lib/python3.8/site-packages'
+[10.036s] Level 1:colcon.colcon_core.environment:checking '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/bin'
+[10.093s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.ps1'
+[10.093s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.dsv'
+[10.094s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.sh'
+[10.094s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.bash'
+[10.095s] INFO:colcon.colcon_core.shell:Creating package script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/minmax/package.zsh'
+[10.095s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/usuario/Documentos/GitHub/IR2117/minmax/install/minmax/share/colcon-core/packages/minmax)
+[10.096s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[10.096s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[10.096s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[10.097s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[10.158s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[10.158s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[10.158s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[10.171s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[10.229s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/local_setup.ps1'
+[10.230s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/usuario/Documentos/GitHub/IR2117/minmax/install/_local_setup_util_ps1.py'
+[10.232s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/setup.ps1'
+[10.291s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/local_setup.sh'
+[10.291s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/usuario/Documentos/GitHub/IR2117/minmax/install/_local_setup_util_sh.py'
+[10.292s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/setup.sh'
+[10.350s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/local_setup.bash'
+[10.351s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/setup.bash'
+[10.410s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/local_setup.zsh'
+[10.411s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/usuario/Documentos/GitHub/IR2117/minmax/install/setup.zsh'
