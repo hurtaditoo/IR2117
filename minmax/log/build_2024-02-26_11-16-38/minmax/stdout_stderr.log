@@ -1,0 +1,24 @@
+[35m[1mScanning dependencies of target min[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/min.dir/src/min.cpp.o[0m
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:[m[K In function ‘[01m[Kvoid topic_callback(std_msgs::msg::Int32_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:18:28:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K][m[K’ before ‘[01m[K)[m[K’ token
+   18 |    if (dic[numbers[i] > max[01;31m[K)[m[K {
+      |                            [01;31m[K^[m[K
+      |                            [32m[K][m[K
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:19:18:[m[K [01;31m[Kerror: [m[K‘[01m[Knumber[m[K’ was not declared in this scope; did you mean ‘[01m[Knumbers[m[K’?
+   19 |    max = numbers[[01;31m[Knumber[m[K]++;
+      |                  [01;31m[K^~~~~~[m[K
+      |                  [32m[Knumbers[m[K
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:22:17:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat32[m[K’ is not a member of ‘[01m[Kstd_msgs::msg[m[K’
+   22 |  std_msgs::msg::[01;31m[KFloat32[m[K min_msg;
+      |                 [01;31m[K^~~~~~~[m[K
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:23:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kmin_msg[m[K’ was not declared in this scope
+   23 |   [01;31m[Kmin_msg[m[K.data = numbers[number];
+      |   [01;31m[K^~~~~~~[m[K
+[01m[K/home/usuario/Documentos/GitHub/IR2117/minmax/src/min.cpp:23:26:[m[K [01;31m[Kerror: [m[K‘[01m[Knumber[m[K’ was not declared in this scope; did you mean ‘[01m[Knumbers[m[K’?
+   23 |   min_msg.data = numbers[[01;31m[Knumber[m[K];
+      |                          [01;31m[K^~~~~~[m[K
+      |                          [32m[Knumbers[m[K
+make[2]: *** [CMakeFiles/min.dir/build.make:63: CMakeFiles/min.dir/src/min.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/min.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
