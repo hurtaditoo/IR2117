@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		}
 
 		message.linear.x = 0;
-		int k=0, m=1010;
+		int k=0, m=1400;
 		while (rclcpp::ok() && k<m) {
 			k++;
 			message.angular.z = 9*M_PI/180;
