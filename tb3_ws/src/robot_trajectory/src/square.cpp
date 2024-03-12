@@ -20,7 +20,8 @@ int main(int argc, char *argv[])
 	double angular_speed = node->get_parameter("angular_speed").get_parameter_value().get<double>();
 	for(int j=0; j<4; j++)
 	{
-		int i=0, n=100/0.1;
+		int i=0;
+		double n = 1 / (0.01 * linear_speed);
 		while (rclcpp::ok() && i<n) {
 			i++;
 			message.linear.x = linear_speed;
