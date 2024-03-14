@@ -26,6 +26,9 @@ find_package(geometry_msgs REQUIRED)
 add_executable(square src/square.cpp)
 ament_target_dependencies(square rclcpp geometry_msgs)
 
+install(DIRECTORY launch
+	DESTINATION share/${PROJECT_NAME})
+
 install(TARGETS
 	square
 	DESTINATION lib/${PROJECT_NAME}
