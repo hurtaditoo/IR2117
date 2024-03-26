@@ -8,11 +8,14 @@
 
 using namespace std::chrono_literals;
 
+double global_x = 0.0;
+double global_y = 0.0;
+
 void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
 {
-    double x = msg->pose.pose.position.x;
-    double y = msg->pose.pose.position.y;
-    std::cout << "Position (x, y): (" << x << ", " << y << ")" << std::endl;
+    global_x = msg->pose.pose.position.x;
+    global_y = msg->pose.pose.position.y;
+    std::cout << "Position (x, y): (" << global_x << ", " << global_y << ")" << std::endl;
 }
 
 int main(int argc, char *argv[])
