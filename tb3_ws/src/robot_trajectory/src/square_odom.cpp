@@ -10,12 +10,18 @@ using namespace std::chrono_literals;
 
 double global_x = 0.0;
 double global_y = 0.0;
+double angle_x = 0.0, angle_y = 0.0, angle_z = 0.0, angle_w = 0.0, yaw = 0.0;
 
 void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
 {
     global_x = msg->pose.pose.position.x;
     global_y = msg->pose.pose.position.y;
-    std::cout << "Position (x, y): (" << global_x << ", " << global_y << ")" << std::endl;
+    angle_x = msg->pose.pose.orientation.x;
+    angle_y = msg->pose.pose.orientation.y;     
+    angle_z = msg->pose.pose.orientation.z;
+    angle_w = msg->pose.pose.orientation.w;
+    yaw = std::atan2(2*(angle_z * angle_w + angle_x * angle_y), 1 -2 * (angle_y * angle_y + angle_z * angle_z));
+    std::cout << "Position (x, y): (" << global_x << ", " << global_y << "), Theta: " << yaw << std::endl;
 }
 
 int main(int argc, char *argv[])
