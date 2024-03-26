@@ -11,6 +11,7 @@ using namespace std::chrono_literals;
 double global_x = 0.0, global_y = 0.0;
 double angle_x = 0.0, angle_y = 0.0, angle_z = 0.0, angle_w = 0.0, yaw = 0.0;
 double initial_x = 0.0, initial_y = 0.0, initial_yaw = 0.0;
+double distance_x = 0.0, distance_y = 0.0, angle_difference = 0.0;
 
 void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
 {
@@ -29,9 +30,9 @@ void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
         std::cout << "Initial Position (x, y): (" << initial_x << ", " << initial_y << "), Initial Angle: " << initial_yaw << std::endl;
     }
     
-    double distance_x = global_x - initial_x;
-    double distance_y = global_y - initial_y;
-    double angle_difference = yaw - initial_yaw;
+    distance_x = global_x - initial_x;
+    distance_y = global_y - initial_y;
+    angle_difference = yaw - initial_yaw;
     if (angle_difference > M_PI) {
         angle_difference -= 2 * M_PI;
     } else if (angle_difference < -M_PI) {
@@ -57,16 +58,23 @@ int main(int argc, char *argv[])
 	double linear_speed = node->get_parameter("linear_speed").get_parameter_value().get<double>();
 	double angular_speed = node->get_parameter("angular_speed").get_parameter_value().get<double>();
 	double square_length = node->get_parameter("square_length").get_parameter_value().get<double>();
+	double distance = sqrt(std::pow(distance_x, 2) + std::pow(distance_y, 2));
+
 	for(int j=0; j<4; j++)
 	{
 		int i=0;
 		double n = square_length / (0.01 * linear_speed);
 		while (rclcpp::ok() && i<n) {
+			if (distance >= square_length) {
+				message.linear.x = 0.0;
+			}
+			else {
 			i++;
 			message.linear.x = linear_speed;
 			publisher->publish(message);
 			rclcpp::spin_some(node);
 			loop_rate.sleep();
+			}
 		}
 
 		message.linear.x = 0;
