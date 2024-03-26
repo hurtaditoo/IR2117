@@ -80,13 +80,21 @@ int main(int argc, char *argv[])
 		message.linear.x = 0;
 		int k=0;
 		double m = (90 * M_PI / 180)  / (0.01 * angular_speed);
-		while (rclcpp::ok() && k<m) {
-			k++;
-			message.angular.z = angular_speed;
-			publisher->publish(message);
-			rclcpp::spin_some(node);
-			loop_rate.sleep();
+		while (rclcpp::ok() && k<m) {	
+			if (angle_difference >= 90*M_PI/180) {
+				message.linear.z = 0.0;
+			}
+			else {
+				k++;
+				message.angular.z = angular_speed;
+				publisher->publish(message);
+				rclcpp::spin_some(node);
+				loop_rate.sleep();
+			}
 		}
+		initial_x = global_x;
+    initial_y = global_y;
+    initial_yaw = yaw;
 		message.angular.z = 0;
 	}
 
