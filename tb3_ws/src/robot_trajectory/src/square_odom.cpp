@@ -8,9 +8,9 @@
 
 using namespace std::chrono_literals;
 
-double global_x = 0.0;
-double global_y = 0.0;
+double global_x = 0.0, global_y = 0.0;
 double angle_x = 0.0, angle_y = 0.0, angle_z = 0.0, angle_w = 0.0, yaw = 0.0;
+double initial_x = 0.0, initial_y = 0.0, initial_yaw = 0.0;
 
 void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
 {
@@ -20,7 +20,15 @@ void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
     angle_y = msg->pose.pose.orientation.y;     
     angle_z = msg->pose.pose.orientation.z;
     angle_w = msg->pose.pose.orientation.w;
-    yaw = std::atan2(2*(angle_z * angle_w + angle_x * angle_y), 1 -2 * (angle_y * angle_y + angle_z * angle_z));
+    yaw = std::atan2(2 * (angle_z * angle_w + angle_x * angle_y), 1 -2 * (angle_y * angle_y + angle_z * angle_z));
+    
+    if (initial_x == 0.0 && initial_y == 0.0 && initial_yaw == 0.0) {
+        initial_x = global_x;
+        initial_y = global_y;
+        initial_yaw = yaw;
+        std::cout << "Initial Position (x, y): (" << initial_x << ", " << initial_y << "), Initial Theta: " << initial_yaw << std::endl;
+    }
+    
     std::cout << "Position (x, y): (" << global_x << ", " << global_y << "), Theta: " << yaw << std::endl;
 }
 
