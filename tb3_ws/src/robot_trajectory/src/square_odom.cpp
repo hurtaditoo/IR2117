@@ -26,12 +26,19 @@ void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
         initial_x = global_x;
         initial_y = global_y;
         initial_yaw = yaw;
-        std::cout << "Initial Position (x, y): (" << initial_x << ", " << initial_y << "), Initial Theta: " << initial_yaw << std::endl;
+        std::cout << "Initial Position (x, y): (" << initial_x << ", " << initial_y << "), Initial Angle: " << initial_yaw << std::endl;
     }
     
     double distance_x = global_x - initial_x;
     double distance_y = global_y - initial_y;
-    std::cout << "Position (x, y): (" << global_x << ", " << global_y << "), Theta: " << yaw << ", Distance from initial position: (" << distance_x << ", " << distance_y << ")" << std::endl;
+    double angle_difference = yaw - initial_yaw;
+    if (angle_difference > M_PI) {
+        angle_difference -= 2 * M_PI;
+    } else if (angle_difference < -M_PI) {
+        angle_difference += 2 * M_PI;
+    }
+    
+    std::cout << "Position (x, y): (" << global_x << ", " << global_y << "), Angle: " << yaw << ", Distance from initial position: (" << distance_x << ", " << distance_y << "), Angle difference from initial: " << angle_difference << std::endl;
 }
 
 int main(int argc, char *argv[])
