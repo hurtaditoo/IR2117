@@ -5,7 +5,7 @@
 
 using namespace std::chrono_literals;
 
-void topic_callback(const geometry_msgs::msg::Twist::SharedPtr msg)
+void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 {
 	std::cout << msg << std::endl;
 }
