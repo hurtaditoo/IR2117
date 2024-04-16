@@ -8,6 +8,7 @@ using namespace std::chrono_literals;
 
 std::vector<float> vector;
 float min;
+bool stop = false;
 
 void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 {
@@ -22,8 +23,14 @@ void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 	{
     	min = std::min(min, vector[i]);
     }
+	
+	if (vector[0] < 1){
+    	stop = true;
+    }
 
 	std::cout << "Minimum value: " << min << std::endl;
+
+	std::cout << vector[0] << std::endl;
 }
 
 int main(int argc, char *argv[])
@@ -36,15 +43,19 @@ int main(int argc, char *argv[])
 	geometry_msgs::msg::Twist message;
 	rclcpp::WallRate loop_rate(10ms);
 	
-	while (rclcpp::ok()) 
+	while (rclcpp::ok() && stop==false) 
 	{
-		message.linear.x = 0;
+		message.linear.x = 0.25;
 		message.angular.z = 0;
 		publisher->publish(message);
 		rclcpp::spin_some(node);
 		loop_rate.sleep();
 	}
 	
+	message.linear.x = 0;
+	publisher->publish(message);
+	rclcpp::spin_some(node);
+	loop_rate.sleep();
 	rclcpp::shutdown();
 	return 0;
 }
