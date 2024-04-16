@@ -7,6 +7,7 @@
 using namespace std::chrono_literals;
 
 std::vector<float> vector;
+float min;
 
 void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 {
@@ -14,17 +15,15 @@ void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 	
 	for (int i=0; i<10; i++) 
 	{
-    	std::cout << vector[i] << " ";
+    	min = std::min(min, vector[i]);
     }
-
-	std::cout << std::endl;
 
     for (int i=350; i<360; i++) 
 	{
-    	std::cout << vector[i] << " ";
+    	min = std::min(min, vector[i]);
     }
 
-	std::cout << std::endl;
+	std::cout << "Minimum value: " << min << std::endl;
 }
 
 int main(int argc, char *argv[])
