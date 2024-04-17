@@ -1,0 +1,5 @@
+ros2 run robot_trajectory square_odom --ros-args --param linear_speed:=0.4 --param angular_speed:=0.4 --param square_length:=2.0
+
+
+ros2 launch turtlebot3_gazebo empty_world.launch.py
+
