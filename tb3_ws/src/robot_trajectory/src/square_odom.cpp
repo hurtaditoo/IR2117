@@ -32,6 +32,7 @@ void odomCallback(const nav_msgs::msg::Odometry::SharedPtr msg)
     
     distance_x = global_x - initial_x;
     distance_y = global_y - initial_y;
+    double distance = sqrt(std::pow(distance_x, 2) + std::pow(distance_y, 2));
     angle_difference = yaw - initial_yaw;
     if (angle_difference > M_PI) {
         angle_difference -= 2 * M_PI;
@@ -58,7 +59,6 @@ int main(int argc, char *argv[])
 	double linear_speed = node->get_parameter("linear_speed").get_parameter_value().get<double>();
 	double angular_speed = node->get_parameter("angular_speed").get_parameter_value().get<double>();
 	double square_length = node->get_parameter("square_length").get_parameter_value().get<double>();
-	double distance = sqrt(std::pow(distance_x, 2) + std::pow(distance_y, 2));
 
 	for(int j=0; j<4; j++)
 	{
