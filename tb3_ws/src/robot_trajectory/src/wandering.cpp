@@ -7,8 +7,9 @@
 using namespace std::chrono_literals;
 
 std::vector<float> vector;
-float min;
+float min_09, min_359;
 bool stop = false;
+float angular;
 
 void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 {
@@ -16,12 +17,12 @@ void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 	
 	for (int i=0; i<10; i++) 
 	{
-    	min = std::min(min, vector[i]);
+    	min_09 = std::min(min_09, vector[i]);
     }
 
     for (int i=350; i<360; i++) 
 	{
-    	min = std::min(min, vector[i]);
+    	min_359 = std::min(min_359, vector[i]);
     }
 	
 	if (vector[0] < 1){
@@ -30,7 +31,8 @@ void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
     	stop = false;
 	}
 
-	std::cout << "Minimum value: " << min << std::endl;
+	std::cout << "Minimum value[0-9]: " << min_09 << std::endl;
+  std::cout << "Minimum value[350-359]: " << min_359 << std::endl;
 
 	std::cout << vector[0] << std::endl;
 }
@@ -58,11 +60,17 @@ int main(int argc, char *argv[])
 	publisher->publish(message);
 	rclcpp::spin_some(node);
 	loop_rate.sleep();
+	
+	if (min_09 > min_359) {
+   	angular = 0.5;
+ 	} else {
+ 		angular = -0.5;
+	}
 
 	while (rclcpp::ok() && stop==true) 
 	{
 		message.linear.x = 0;
-		message.angular.z = 0.25;
+		message.angular.z = angular;
 		publisher->publish(message);
 		rclcpp::spin_some(node);
 		loop_rate.sleep();
