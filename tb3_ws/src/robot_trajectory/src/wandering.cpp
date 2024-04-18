@@ -8,8 +8,9 @@ using namespace std::chrono_literals;
 
 std::vector<float> vector;
 float min_09, min_359;
-bool stop = false;
+bool obstacle = false;
 float angular;
+bool turn_left = false, turn_right = false;
 
 void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 {
@@ -17,18 +18,18 @@ void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 	
 	for (int i=0; i<10; i++) 
 	{
-    	min_09 = std::min(min_09, vector[i]);
-    }
+    min_09 = std::min(min_09, vector[i]);
+  }
 
-    for (int i=350; i<360; i++) 
+  for (int i=350; i<360; i++) 
 	{
-    	min_359 = std::min(min_359, vector[i]);
-    }
+    min_359 = std::min(min_359, vector[i]);
+  }
 	
 	if (vector[0] < 1){
-    	stop = true;
-    } else {
-    	stop = false;
+    	obstacle = true;
+  } else {
+    	obstacle = false;
 	}
 
 	std::cout << "Minimum value[0-9]: " << min_09 << std::endl;
@@ -47,33 +48,55 @@ int main(int argc, char *argv[])
 	geometry_msgs::msg::Twist message;
 	rclcpp::WallRate loop_rate(10ms);
 	
-	while (rclcpp::ok() && stop==false) 
+	while (rclcpp::ok())
 	{
-		message.linear.x = 0.25;
-		message.angular.z = 0;
-		publisher->publish(message);
-		rclcpp::spin_some(node);
-		loop_rate.sleep();
-	}
-	
-	message.linear.x = 0;
-	publisher->publish(message);
-	rclcpp::spin_some(node);
-	loop_rate.sleep();
-	
-	if (min_09 > min_359) {
-   	angular = 0.5;
- 	} else {
- 		angular = -0.5;
-	}
+		
+		if (!turn_left && !turn_left) 
+		{
+			while (rclcpp::ok() && obstacle==false) 
+			{
+				message.linear.x = 0.25;
+				message.angular.z = 0;
+				publisher->publish(message);
+				rclcpp::spin_some(node);
+				loop_rate.sleep();
+			}
+			
+			if (min_09 > min_359) {
+		 		turn_left = true;
+	 		} else {
+	 			turn_right = true;
+			}
+			
+		}
+		
+		if (turn_left)
+		{
 
-	while (rclcpp::ok() && stop==true) 
-	{
-		message.linear.x = 0;
-		message.angular.z = angular;
-		publisher->publish(message);
-		rclcpp::spin_some(node);
-		loop_rate.sleep();
+			while (rclcpp::ok() && obstacle==true) 
+			{
+				message.linear.x = 0;
+				message.angular.z = angular;
+				publisher->publish(message);
+				rclcpp::spin_some(node);
+				loop_rate.sleep();
+			}
+			turn_left = false;
+		}
+		
+		if (turn_right)
+		{
+
+			while (rclcpp::ok() && obstacle==true) 
+			{
+				message.linear.x = 0;
+				message.angular.z = angular;
+				publisher->publish(message);
+				rclcpp::spin_some(node);
+				loop_rate.sleep();
+			}
+			turn_right = false;
+		}
 	}
 	
 	message.angular.z = 0;
