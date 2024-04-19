@@ -1,5 +1,30 @@
+mkdir -p tb3_ws/src -> crear workspace tb3_ws
+ros2 pkg create --build-type ament_cmake robot robot_trajectory -> crear paquete robot_trajectory
+
+colcon build -> compilar
+
+ros2 topic echo /scan(nombre_del_topic) --no-arr -> muestra por pantalla lo que hace el topic
+
+ros2 launch turtlebot3_gazebo empty_world.launch.py -> gazebo
+
+export WEBOTS_HOME=~/webots-R2022b -> define la versión de webots como la R2022b
+ros2 launch webots_ros2_turtlebot robot_launch.py -> webots
+
+ros2 run turtlesim turtlesim_node -> abrir turtlesim
+
+rvis2 -d tb3.rviz -> abrir rviz con la configuración de tb3.rviz
+
 ros2 run robot_trajectory square_odom --ros-args --param linear_speed:=0.4 --param angular_speed:=0.4 --param square_length:=2.0
 
+ros2 run robot_trajectory square --ros-args --remap /cmd_vel:=/turtle1/cmd_vel --param linear_speed:=0.5 --param angular_speed:=1.2  --param square_length:=1.5 -> abrir turtlesim con params
 
-ros2 launch turtlebot3_gazebo empty_world.launch.py
+ros2 topic pub --once <topic_name> <msg_type> ‘<args>’ -> Publica un mensaje con unos argumentos en un topic. Poner “--once” para que solo se publique una vez1
+ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist \
+"{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" -> ejempllo
 
+
+ROS SERVICES ->
+    "subscriber <- topic <- publisher" (message va desde publisher a subscriber)
+    "[request messsage -> service client] -> service: request -> service server ->service: response -> service client"
+
+ 
