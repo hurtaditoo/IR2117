@@ -7,9 +7,10 @@
 using namespace std::chrono_literals;
 
 std::vector<float> vector;
-float min_09, min_359;
+float min_09 = std::numeric_limits<float>::max();
+float min_359 = std::numeric_limits<float>::max();
 bool obstacle = false;
-float angular;
+float angular = 0.5;
 bool turn_left = false, turn_right = false;
 
 void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
@@ -43,16 +44,17 @@ int main(int argc, char *argv[])
 	rclcpp::init(argc, argv);
 	auto node = rclcpp::Node::make_shared("publisher");
 	auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
-  	auto subscription = node->create_subscription<sensor_msgs::msg::LaserScan>(
+  auto subscription = node->create_subscription<sensor_msgs::msg::LaserScan>(
     "scan", 10, topic_callback);
+	
 	geometry_msgs::msg::Twist message;
+	
 	rclcpp::WallRate loop_rate(10ms);
 	
-	while (rclcpp::ok())
+	while (rclcpp::ok()) 
 	{
-		
-		if (!turn_left && !turn_left) 
-		{
+		while (!turn_left && !turn_right) 
+		{	
 			while (rclcpp::ok() && obstacle==false) 
 			{
 				message.linear.x = 0.25;
@@ -67,12 +69,10 @@ int main(int argc, char *argv[])
 	 		} else {
 	 			turn_right = true;
 			}
-			
 		}
 		
 		if (turn_left)
 		{
-
 			while (rclcpp::ok() && obstacle==true) 
 			{
 				message.linear.x = 0;
@@ -86,11 +86,10 @@ int main(int argc, char *argv[])
 		
 		if (turn_right)
 		{
-
 			while (rclcpp::ok() && obstacle==true) 
 			{
 				message.linear.x = 0;
-				message.angular.z = angular;
+				message.angular.z = -angular;
 				publisher->publish(message);
 				rclcpp::spin_some(node);
 				loop_rate.sleep();
