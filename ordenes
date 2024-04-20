@@ -27,4 +27,10 @@ ROS SERVICES ->
     "subscriber <- topic <- publisher" (message va desde publisher a subscriber)
     "[request messsage -> service client] -> service: request -> service server ->service: response -> service client"
 
+ Sensors->perception->modelling->planning->task execution->motor control->Actuators
  
+ Planning = persistent state and choices (long-range, high-level goals, replannig, missions/tasks)
+ Executive = memory of immediate actions (decomposition. arbitration, monitoring, error recovery)
+ Behavioral control = limited state (situated, cognizant failure, speed, reactivty)
+ 
+ Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
