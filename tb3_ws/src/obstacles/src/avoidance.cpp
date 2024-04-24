@@ -5,16 +5,23 @@
 
 using namespace std::chrono_literals;
 
+bool obstacle_front=true;
+bool obstacle_left=true;
+bool obstacle_right=true;
+
 void callback_front(const example_interfaces::msg::Bool::SharedPtr msg)
 {
+	obstacle_front = msg->data;
 }
 
 void callback_left(const example_interfaces::msg::Bool::SharedPtr msg)
 {
+	obstacle_left = msg->data;
 }
 
 void callback_right(const example_interfaces::msg::Bool::SharedPtr msg)
 {
+	obstacle_right = msg->data;
 }
 
 int main(int argc, char * argv[])
