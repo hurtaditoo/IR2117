@@ -5,9 +5,17 @@
 
 using namespace std::chrono_literals;
 
-bool obstacle_front=true;
-bool obstacle_left=true;
-bool obstacle_right=true;
+bool obstacle_front = false;
+bool obstacle_left = false;
+bool obstacle_right = false;
+
+enum State {
+    S1,
+    S2,
+    S3
+};
+
+State state = S1;
 
 void callback_front(const example_interfaces::msg::Bool::SharedPtr msg)
 {
@@ -36,11 +44,53 @@ int main(int argc, char * argv[])
     geometry_msgs::msg::Twist message;
     rclcpp::WallRate loop_rate(50ms);
     
-    while (rclcpp::ok()){
-        publisher->publish(message);
-        rclcpp::spin_some(node);
-        loop_rate.sleep();
-    }
+		while (rclcpp::ok()) 
+		{
+			switch (state) 
+			{
+				case S1:
+					if (obstacle_front) {
+						state = S2;
+					}
+					break;
+					
+				case S2:
+					if (obstacle_front && obstacle_left) 
+					{
+						state = S1;
+					} else if (obstacle_right) 
+					{
+						state = S3;
+					}
+					break;
+					
+				case S3:
+					if (obstacle_front) {
+							state = S1;
+					}
+					break;
+			}
+			
+			if (state == S1)
+			{
+				message.linear.x = 0.3;
+				message.angular.z = 0;
+			} 
+			else if (state == S2) 
+			{
+				message.linear.x = 0;
+				message.angular.z = 0.3;
+			} 
+			else if (state == S3) 
+			{
+				message.linear.x = 0;
+				message.angular.z = -0.3;
+			}
+			
+			publisher->publish(message);
+      rclcpp::spin_some(node);
+      loop_rate.sleep();
+		}
 
     rclcpp::shutdown();
     return 0;
