@@ -49,13 +49,23 @@ int main(int argc, char * argv[])
 			switch (state) 
 			{
 				case S1:
+					message.linear.x = 0.3;
+					message.angular.z = 0.0;
 					if (obstacle_front) {
-						state = S2;
+						if (!obstacle_left) {
+							state = S2;
+						} else if (!obstacle_right) {
+							state = S3;
+						} else { // random choice
+							
+						}
 					}
 					break;
 					
 				case S2:
-					if (obstacle_front && obstacle_left) 
+					message.linear.x = 0.0;
+					message.angular.z = 0.3;
+					if (obstacle_left) 
 					{
 						state = S1;
 					} else if (obstacle_right) 
@@ -65,26 +75,12 @@ int main(int argc, char * argv[])
 					break;
 					
 				case S3:
-					if (obstacle_front) {
+					message.linear.x = 0.0;
+					message.angular.z = -0.3;
+					if (!obstacle_front) {
 							state = S1;
 					}
 					break;
-			}
-			
-			if (state == S1)
-			{
-				message.linear.x = 0.3;
-				message.angular.z = 0;
-			} 
-			else if (state == S2) 
-			{
-				message.linear.x = 0;
-				message.angular.z = 0.3;
-			} 
-			else if (state == S3) 
-			{
-				message.linear.x = 0;
-				message.angular.z = -0.3;
 			}
 			
 			publisher->publish(message);
