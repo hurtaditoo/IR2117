@@ -16,18 +16,15 @@ void callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 	float angle = msg->angle_min;
 	for (float range: msg->ranges) 
 	{
-		if (angle > M_PI ) {
-			angle -= 2*M_PI;
-			if((angle >= obs_angle_min) and (angle <= obs_angle_max))
+		if (angle > M_PI ) angle -= 2*M_PI;
+		if((angle >= obs_angle_min) and (angle <= obs_angle_max))
+		{
+			if (range <= obs_threshold)
 			{
-				if (range <= obs_threshold)
-				{
-					out_msg.data = true;
-					break;
-				}
+				out_msg.data = true;
 			}
-		angle += msg->angle_increment;
 		}
+		angle += msg->angle_increment;
 	}
 	publisher->publish(out_msg);
 }

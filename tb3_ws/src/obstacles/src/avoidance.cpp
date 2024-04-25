@@ -10,12 +10,12 @@ bool obstacle_left = false;
 bool obstacle_right = false;
 
 enum State {
-    S1,
-    S2,
-    S3
+    forward,
+    turn_left,
+    turn_right
 };
 
-State state = S1;
+State state = forward;
 
 void callback_front(const example_interfaces::msg::Bool::SharedPtr msg)
 {
@@ -48,37 +48,31 @@ int main(int argc, char * argv[])
 		{
 			switch (state) 
 			{
-				case S1:
+				case forward:
 					message.linear.x = 0.3;
 					message.angular.z = 0.0;
 					if (obstacle_front) {
-						if (!obstacle_left) {
-							state = S2;
-						} else if (!obstacle_right) {
-							state = S3;
-						} else { // random choice
-							
-						}
+						if (obstacle_left && !obstacle_right) {
+							state = turn_right;
+						} else if (obstacle_right && !obstacle_left) {
+							state = turn_left;
+						} 
 					}
 					break;
 					
-				case S2:
+				case turn_left:
 					message.linear.x = 0.0;
 					message.angular.z = 0.3;
-					if (obstacle_left) 
-					{
-						state = S1;
-					} else if (obstacle_right) 
-					{
-						state = S3;
+					if (!obstacle_front) {
+						state = forward;
 					}
 					break;
 					
-				case S3:
+				case turn_right:
 					message.linear.x = 0.0;
 					message.angular.z = -0.3;
 					if (!obstacle_front) {
-							state = S1;
+							state = forward;
 					}
 					break;
 			}
