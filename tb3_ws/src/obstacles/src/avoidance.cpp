@@ -2,6 +2,9 @@
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "example_interfaces/msg/bool.hpp"
+#include <cstdlib>
+#include <ctime>
+
 
 using namespace std::chrono_literals;
 
@@ -41,14 +44,18 @@ int main(int argc, char * argv[])
     auto subs_left = node->create_subscription<example_interfaces::msg::Bool>("/left/obstacle", 10, callback_left);
     auto subs_right = node->create_subscription<example_interfaces::msg::Bool>("/right/obstacle", 10, callback_right);
     
+    std::srand(std::time(nullptr)); // use current time as seed for random generator
+    int random;
+
     geometry_msgs::msg::Twist message;
     rclcpp::WallRate loop_rate(50ms);
-    
+   
 		while (rclcpp::ok()) 
 		{
+		  random = std::rand() % 2;
 			switch (state) 
 			{
-				case forward:
+				case forward:				
 					message.linear.x = 0.3;
 					message.angular.z = 0.0;
 					if (obstacle_front) {
@@ -56,11 +63,15 @@ int main(int argc, char * argv[])
 							state = turn_right;
 						} else if (obstacle_right && !obstacle_left) {
 							state = turn_left;
-						} 
+						} else
+						{
+							if (random) state = turn_left;
+							if (!random) state = turn_right;
+						}
 					}
 					break;
 					
-				case turn_left:
+				case turn_left:		
 					message.linear.x = 0.0;
 					message.angular.z = 0.3;
 					if (!obstacle_front) {
@@ -68,7 +79,7 @@ int main(int argc, char * argv[])
 					}
 					break;
 					
-				case turn_right:
+				case turn_right:			
 					message.linear.x = 0.0;
 					message.angular.z = -0.3;
 					if (!obstacle_front) {
