@@ -34,3 +34,9 @@ ROS SERVICES ->
  Behavioral control = limited state (situated, cognizant failure, speed, reactivty)
  
  Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
+
+A state is a description of the status of a system that is waiting to execute a transition.
+A transition is a set of actions to be executed when a condition is fulfilled or when an event is received.
+It is also possible to associate actions with a state:
+an entry action: performed when entering the state, and
+an exit action: performed when exiting the state.
