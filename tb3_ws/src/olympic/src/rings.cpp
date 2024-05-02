@@ -2,6 +2,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
+#include <cmath> 
 
 using namespace std::chrono_literals;
 
@@ -11,18 +12,26 @@ int main(int argc, char * argv[])
  auto node = rclcpp::Node::make_shared("rings");
  auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
  geometry_msgs::msg::Twist message;
- auto publish_count = 0;
  rclcpp::WallRate loop_rate(500ms);
 
- while (rclcpp::ok()) {
+ double radius = 1.0;
+ double angular_speed = 1.0;
+ int k=0;
+ double m = (2 * M_PI * radius) / (angular_speed * 0.01);
+ while (rclcpp::ok() && k<m) {
+   k++;
    message.linear.x = 1.0;
-   message.angular.z = 1.0;
+   message.angular.z = angular_speed;
    publisher->publish(message);
    rclcpp::spin_some(node);
    loop_rate.sleep();
  }
-
  
+ // Send zero velocity to topic 
+ message.linear.x = 0;
+ message.angular.z = 0;
+ publisher->publish(message);
+    
  rclcpp::shutdown();
  return 0;
 }
