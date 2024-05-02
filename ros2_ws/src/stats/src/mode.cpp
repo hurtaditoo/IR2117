@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <map>
 
-std::vector<float> numbers;
+"""std::vector<float> numbers;
 std::map<int, int> dic;
 int max = 0;
 std::vector<int> mode;
@@ -46,5 +46,5 @@ int main(int argc, char * argv[])
 	rclcpp::spin(node);
  	rclcpp::shutdown();
   return 0;
-}
+}"""
 
