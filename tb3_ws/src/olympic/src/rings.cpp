@@ -22,13 +22,13 @@ int main(int argc, char * argv[])
  auto client_setpen = node->create_client<turtlesim::srv::SetPen>("/turtle1/set_pen");
  auto request_setpen = std::make_shared<turtlesim::srv::SetPen::Request>();
  
- //request_setpen -> r = 0;
- //request_setpen -> g = 0;
- //request_setpen -> b = 255;
- //request_setpen -> width = 4;
- //request_setpen -> off = false; // Si está en true no dibuja
+ request_setpen -> r = 0;
+ request_setpen -> g = 0;
+ request_setpen -> b = 255;
+ request_setpen -> width = 4;
+ request_setpen -> off = false; // Si está en true no dibuja
 
- //SetPen_client->async_send_request(request_setpen);
+ client_setpen->async_send_request(request_setpen);
 	
  node->declare_parameter("radius", 1.0);
  node->declare_parameter("linear_speed", 1.0);
