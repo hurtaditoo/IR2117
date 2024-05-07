@@ -3,6 +3,7 @@
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "turtlesim/srv/set_pen.hpp"
+#include "turtlesim/srv/teleport_absolute.hpp"
 #include <cmath> 
 
 double radius;
@@ -22,13 +23,26 @@ int main(int argc, char * argv[])
  auto client_setpen = node->create_client<turtlesim::srv::SetPen>("/turtle1/set_pen");
  auto request_setpen = std::make_shared<turtlesim::srv::SetPen::Request>();
  
- request_setpen -> r = 0;
- request_setpen -> g = 0;
- request_setpen -> b = 255;
- request_setpen -> width = 4;
- request_setpen -> off = false; // Si está en true no dibuja
+ request_setpen->r = 0;
+ request_setpen->g = 0;
+ request_setpen->b = 255;
+ request_setpen->width = 4;
+ request_setpen->off = true; // Si está en true no dibuja, en false dibuja
 
  client_setpen->async_send_request(request_setpen);
+ 
+ // Call service teleport_absolute 
+ 
+ auto client_teleport = node->create_client<turtlesim::srv::TeleportAbsolute>("/turtle1/teleport_absolute");
+ auto request_teleport = std::make_shared<turtlesim::srv::TeleportAbsolute::Request>();
+    
+ request_teleport->x = 3;
+ request_teleport->y = 7;
+ request_teleport->theta = 0;
+
+ client_teleport->async_send_request(request_teleport);
+ 
+ request_setpen->off = false; // Si está en true no dibuja, en false dibuja
 	
  node->declare_parameter("radius", 1.0);
  node->declare_parameter("linear_speed", 1.0);

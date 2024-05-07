@@ -1,0 +1,13 @@
+Para empezar a crear el olympic rings lo primero que hemos hecho es abrir el rqt y ejecutar en terminal las instrucciones de abrir turtlesim y turtlesim_teleop. A continuación, hemos usado una serie de plugings para poder realizar los diversos anillos.
+	
+	1. Introspection -> Node Graph. Damos a actualizar y nos sale que tenemos activos tanto turtlesim como teleop.
+	
+	2. Topics -> Topic Monitor. Despliegas el menú /turtle1/pose. Aquí vamos a poder ver la posición en la que se encuentra la tortuga nada más abrir el visualizador, y también en tiempo real.
+	
+	3. Services -> Service Caller. Despliegas el menú y seleccionamos /turtle1/set_pen. En off ponemos 1 y damos a call. Esto se hace para que al transportar la tortuga, no deje una línea por toda la pantalla, es decir, hemos hecho que la línea no se haga. Posteriormente, iremos cambiando el rgb para obtener el color que queremos para hacer los anillos de ese color.
+	
+	4. Services -> Service Caller. Despliegas el menú y seleccionamos /turtle1/teleport_absolute. Como la línea no se hace, aprovechamos y seleccionamos la posición en la que queremos que la tortuga empiece a hacer los anillos, y hacemos un call. La 1 (azul) ha sido x=3, y=7. 2 (negra): x=5.25, y=7. 3 (rojo): x=7.5, y=7. 4 (amarillo): x=4.125, y=6. 5 (verde): x=6.375, y=6. La posición final de la tortuga ha sido x=5.25, y=4.
+	
+	5. Topics -> Message Publisher. En topic seleccionamos /turtle1/cmd_vel. Desplegamos el menú de linear y angular. Aquí vamos a poner 1 tanto en linear -> x como en angular -> z. Así logramos que el anillo sea de radio 1. Activamos el topic y hacemos que haga el círculo, cuando esté hecho, podemos desactivarlo y así asegurarnos de que no va a hacer círculos mientras hacemos los diversos cambios.
+	
+	6. Configuration -> Dynamic Reconfigure. Seleccionamos turtlesim y ahí ajustamos el rgb a 255, 255, 255 para que el fondo sea blanco.
