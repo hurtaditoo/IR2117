@@ -34,6 +34,9 @@ ament_target_dependencies(
   "turtlesim"
 )
 
+install(DIRECTORY launch
+	DESTINATION share/${PROJECT_NAME})
+
 install(TARGETS rings
   DESTINATION lib/${PROJECT_NAME})
 
