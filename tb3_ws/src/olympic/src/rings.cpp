@@ -29,7 +29,15 @@ int main(int argc, char * argv[])
  request_setpen->width = 4;
  request_setpen->off = true; // Si está en true no dibuja, en false dibuja
 
- client_setpen->async_send_request(request_setpen);
+ auto result_setpen = client_setpen->async_send_request(request_setpen);
+ // Wait for the result.
+ if (rclcpp::spin_until_future_complete(request_setpen, result_setpen) ==
+   rclcpp::FutureReturnCode::SUCCESS)
+ {
+   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
+ } else {
+   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+ }
  
  // Call service teleport_absolute 
  
@@ -40,10 +48,18 @@ int main(int argc, char * argv[])
  request_teleport->y = 7;
  request_teleport->theta = 0;
 
- client_teleport->async_send_request(request_teleport);
- 
+ auto result_teleport = client_teleport->async_send_request(request_teleport); 
  request_setpen->off = false; // Si está en true no dibuja, en false dibuja
-	
+ 
+ // Wait for the result.
+ if (rclcpp::spin_until_future_complete(request_teleport, result_teleport) ==
+   rclcpp::FutureReturnCode::SUCCESS)
+ {
+   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
+ } else {
+   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+ }
+ 
  node->declare_parameter("radius", 1.0);
  node->declare_parameter("linear_speed", 1.0);
  node->declare_parameter("angular_speed", 1.0);
