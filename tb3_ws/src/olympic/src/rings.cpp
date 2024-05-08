@@ -92,7 +92,7 @@ int main(int argc, char * argv[])
 	geometry_msgs::msg::Twist message;
 	rclcpp::WallRate loop_rate(10ms);
 
-	for (int r=0; r<5; r++) 
+	for (int i=0; i<5; i++) 
 	{
 		request_setpen->off = true;
     result_setpen = client_setpen->async_send_request(request_setpen);
@@ -123,6 +123,13 @@ int main(int argc, char * argv[])
 		message.angular.z = 0;
 		publisher->publish(message);
 	}
+	
+	request_setpen->off = true;
+  result_setpen = client_setpen->async_send_request(request_setpen);
+  
+  request_teleport->x = 5.25; 
+  request_teleport->y = 4;
+  result_teleport = client_teleport->async_send_request(request_teleport);
     
 	rclcpp::shutdown();
 	return 0;
