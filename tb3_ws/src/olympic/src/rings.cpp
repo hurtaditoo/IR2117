@@ -26,9 +26,9 @@ int main(int argc, char * argv[])
 	request_setpen->width = 4;
 	request_setpen->off = true;
 	
-	std::vector<int> r = {0, 0, 255, 255};
-  std::vector<int> g = {0, 0, 0, 255};
-  std::vector<int> b = {255, 0, 0, 0};
+	std::vector<int> r = {0, 0, 255, 255, 0};
+  std::vector<int> g = {0, 0, 0, 255, 255};
+  std::vector<int> b = {255, 0, 0, 0, 0};
 	 
 	while (!client_setpen->wait_for_service(1s)) {
 		if (!rclcpp::ok()) {
@@ -57,8 +57,8 @@ int main(int argc, char * argv[])
 	request_teleport->y = 7;
 	request_teleport->theta = 0;
 	
-	std::vector<double> x = {3, 5.25, 7.5, 4.125};
-  std::vector<double> y = {7, 7, 7, 6};
+	std::vector<double> x = {3, 5.25, 7.5, 4.125, 6.375};
+  std::vector<double> y = {7, 7, 7, 6, 6};
  
 	while (!client_teleport->wait_for_service(1s)) {
 		if (!rclcpp::ok()) {
@@ -92,7 +92,7 @@ int main(int argc, char * argv[])
 	geometry_msgs::msg::Twist message;
 	rclcpp::WallRate loop_rate(10ms);
 
-	for (int i=0; i<4; i++) 
+	for (int i=0; i<5; i++) 
 	{
 		request_setpen->off = true;
     result_setpen = client_setpen->async_send_request(request_setpen);
