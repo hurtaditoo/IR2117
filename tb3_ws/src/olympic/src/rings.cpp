@@ -64,9 +64,7 @@ int main(int argc, char * argv[])
    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting for the teleport service to be available...");
  }  
 
-
  auto result_teleport = client_teleport->async_send_request(request_teleport); 
- request_setpen->off = false; // Si está en true no dibuja, en false dibuja 
  
  // Wait for the result of Teleport.
  if (rclcpp::spin_until_future_complete(node, result_teleport) == rclcpp::FutureReturnCode::SUCCESS)
@@ -75,6 +73,11 @@ int main(int argc, char * argv[])
  } else {
    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service Teleport Absolute");
  }
+ 
+ // Change off to false after teleportation
+ request_setpen->off = false;
+ result_setpen = client_setpen->async_send_request(request_setpen);
+    
  
  node->declare_parameter("radius", 1.0);
  node->declare_parameter("linear_speed", 1.0);
