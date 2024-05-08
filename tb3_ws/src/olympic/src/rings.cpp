@@ -22,12 +22,13 @@ int main(int argc, char * argv[])
 	 
 	auto client_setpen = node->create_client<turtlesim::srv::SetPen>("/turtle1/set_pen");
 	auto request_setpen = std::make_shared<turtlesim::srv::SetPen::Request>();
-	 
-	request_setpen->r = 0;
-	request_setpen->g = 0;
-	request_setpen->b = 255;
+	
 	request_setpen->width = 4;
-	request_setpen->off = true; // Si está en true no dibuja, en false dibuja
+	request_setpen->off = true;
+	
+	std::vector<int> r = {0, 0};
+  std::vector<int> g = {0, 0};
+  std::vector<int> b = {255, 0};
 	 
 	while (!client_setpen->wait_for_service(1s)) {
 		if (!rclcpp::ok()) {
@@ -93,14 +94,17 @@ int main(int argc, char * argv[])
 
 	for (int i=0; i<2; i++) 
 	{
-    request_setpen->off = true;
+		request_setpen->off = true;
     result_setpen = client_setpen->async_send_request(request_setpen);
     
     request_teleport->x = x[i]; 
     request_teleport->y = y[i];
     result_teleport = client_teleport->async_send_request(request_teleport);
 
-    request_setpen->off = false;
+    request_setpen->r = r[i];
+		request_setpen->g = g[i];
+		request_setpen->b = b[i];
+		request_setpen->off = false;
     result_setpen = client_setpen->async_send_request(request_setpen); 		
 		
 		int k=0;
