@@ -17,7 +17,7 @@ int main(int argc, char * argv[])
  rclcpp::init(argc, argv);
  auto node = rclcpp::Node::make_shared("rings");
  auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("/turtle1/cmd_vel", 10);
-
+ 
  // Call service Setpen 
  
  auto client_setpen = node->create_client<turtlesim::srv::SetPen>("/turtle1/set_pen");
@@ -28,15 +28,23 @@ int main(int argc, char * argv[])
  request_setpen->b = 255;
  request_setpen->width = 4;
  request_setpen->off = true; // Si está en true no dibuja, en false dibuja
+ 
+ while (!client_setpen->wait_for_service(1s)) {
+  if (!rclcpp::ok()) {
+   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
+   return 0;
+  }
+   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting for the setpen service to be available...");
+ } 
 
  auto result_setpen = client_setpen->async_send_request(request_setpen);
- // Wait for the result.
- if (rclcpp::spin_until_future_complete(request_setpen, result_setpen) ==
-   rclcpp::FutureReturnCode::SUCCESS)
+ 
+ // Wait for the result of SetPen.
+ if (rclcpp::spin_until_future_complete(node, result_setpen) == rclcpp::FutureReturnCode::SUCCESS)
  {
-   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
+   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Works well");
  } else {
-   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service SetPen");
  }
  
  // Call service teleport_absolute 
@@ -47,17 +55,25 @@ int main(int argc, char * argv[])
  request_teleport->x = 3;
  request_teleport->y = 7;
  request_teleport->theta = 0;
+ 
+ while (!client_teleport->wait_for_service(1s)) {
+  if (!rclcpp::ok()) {
+   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
+   return 0;
+  }
+   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting for the teleport service to be available...");
+ }  
+
 
  auto result_teleport = client_teleport->async_send_request(request_teleport); 
- request_setpen->off = false; // Si está en true no dibuja, en false dibuja
+ request_setpen->off = false; // Si está en true no dibuja, en false dibuja 
  
- // Wait for the result.
- if (rclcpp::spin_until_future_complete(request_teleport, result_teleport) ==
-   rclcpp::FutureReturnCode::SUCCESS)
+ // Wait for the result of Teleport.
+ if (rclcpp::spin_until_future_complete(node, result_teleport) == rclcpp::FutureReturnCode::SUCCESS)
  {
-   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
+   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Works well");
  } else {
-   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service Teleport Absolute");
  }
  
  node->declare_parameter("radius", 1.0);
@@ -89,4 +105,3 @@ int main(int argc, char * argv[])
  rclcpp::shutdown();
  return 0;
 }
-
