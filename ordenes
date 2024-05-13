@@ -1,27 +1,54 @@
-mkdir -p tb3_ws/src -> crear workspace tb3_ws
-ros2 pkg create --build-type ament_cmake robot robot_trajectory -> crear paquete robot_trajectory
+- mkdir -p tb3_ws/src -> crear workspace tb3_ws
+- ros2 pkg create --build-type ament_cmake robot robot_trajectory -> crear paquete robot_trajectory
+- colcon build -> compilar
 
-colcon build -> compilar
+- ros2 topic echo /scan(nombre_del_topic) --no-arr -> muestra por pantalla lo que hace el topic
 
-ros2 topic echo /scan(nombre_del_topic) --no-arr -> muestra por pantalla lo que hace el topic
+- ros2 launch turtlebot3_gazebo empty_world.launch.py -> gazebo
 
-ros2 launch turtlebot3_gazebo empty_world.launch.py -> gazebo
+- export WEBOTS_HOME=~/webots-R2022b -> define la versión de webots como la R2022b
+- ros2 launch webots_ros2_turtlebot robot_launch.py -> webots
 
-export WEBOTS_HOME=~/webots-R2022b -> define la versión de webots como la R2022b
-ros2 launch webots_ros2_turtlebot robot_launch.py -> webots
+- ros2 run turtlesim turtlesim_node -> abrir turtlesim
 
-ros2 run turtlesim turtlesim_node -> abrir turtlesim
+- rviz2 -d tb3.rviz -> abrir rviz con la configuración de tb3.rviz
 
-rvis2 -d tb3.rviz -> abrir rviz con la configuración de tb3.rviz
+- ros2 run robot_trajectory square_odom --ros-args --param linear_speed:=0.4 --param angular_speed:=0.4 --param square_length:=2.0
 
-ros2 run robot_trajectory square_odom --ros-args --param linear_speed:=0.4 --param angular_speed:=0.4 --param square_length:=2.0
+- ros2 run robot_trajectory square --ros-args --remap /cmd_vel:=/turtle1/cmd_vel --param linear_speed:=0.5 --param angular_speed:=1.2  --param square_length:=1.5 -> abrir turtlesim con params
 
-ros2 run robot_trajectory square --ros-args --remap /cmd_vel:=/turtle1/cmd_vel --param linear_speed:=0.5 --param angular_speed:=1.2  --param square_length:=1.5 -> abrir turtlesim con params
-
-ros2 topic pub --once <topic_name> <msg_type> ‘<args>’ -> Publica un mensaje con unos argumentos en un topic. Poner “--once” para que solo se publique una vez1
-ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist \
+- ros2 topic pub --once /<topic_name> <msg_type> ‘<args>’ -> Publica un mensaje con unos argumentos en un topic. Poner “--once” para que solo se publique una vez1
+- ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist \
 "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" -> ejempllo
 
+- ros2 node list (te dice los nodos que están activos) -> /publisher /subscriber
+- ros2 node info (publishers, subscribers,services,actions)
+- ros2 topic list (topics activos) /parameter_events /rosout /topic
+- ros2 topic info /topic (el tipo de mensaje activo, contador de publisher y subscriber, service servers y clients, action servers y clients)
+- ros2 run robot_trajectory square --ros-args --remap /cmd_vel:=/turtle1/cmd_vel (rename topic at runtime)
+- ros2 param get /turtlesim background_b (devuelve valores de los parámetros)
+- ros2 param set <node_name> <parameter_name> value (cambia los valores de los parámetros at runtime)
+- ros2 run obstacles detector --ros-args -r __ns:=/left --param obs_angle_min:=0.3927 (ejecuta el detector izquierdo)
+- ros2 param list (te dice el nodo ejecutado y dentro de ese, los parámetros, ej: /ftont/detector:obs_angle_max,min...)
+- ros2 interface show turtlesim/action/RotateAbsolute -> float32 delta: the result, float32 theta: the goal request, float32 remaining: the feedback
+
+Write the command for sending an action goal for rotating the turtle towards a desired heading of 90 ->
+rost action [send_goal] /turtle1/[rutate_sbsolute) turtlesin/action/[RotateAbsolute) "(theta: [(1.57])"
+
+To start the same node using some saved parameter values, we use -> 
+ros2 run [<package name>] [<executable name>] [--ros-args) [--params-file] [<file_name>]
+
+To see the request and response arguments of the /spawn service, run the command ros2 interface show turtlesim/srv/Spawn Which return: float32 x,y,theta, string name -> 
+Which are the response arguments? name
+Which are the request arguments? x, y, theta, name
+
+You can save all of a node's current parameter values into a file to save them for later by using the command ->
+ros2 param dump <node_name>
+
+LAUNCH: return(Node(package,executable,remappings,parameters))
+
+ROS ACTIONS ->
+Actions are built on (topics) and services. Their functionality is similar to [services), except actions are (preemptable) (you can cancel them while executing). They also provide steady [feedback) as opposed to services which return a single (response)
 
 ROS SERVICES ->
     "subscriber <- topic <- publisher" (message va desde publisher a subscriber)
@@ -32,11 +59,37 @@ ROS SERVICES ->
  Planning = persistent state and choices (long-range, high-level goals, replannig, missions/tasks)
  Executive = memory of immediate actions (decomposition. arbitration, monitoring, error recovery)
  Behavioral control = limited state (situated, cognizant failure, speed, reactivty)
- 
+
+ Services are another method of communication for nodes in the ROS graph. Services are based on a call-and-response model
+ versus the publisher-subscriber model of topics. While topics allow nodes to subscribe to data streams and get continual 
+ updates, services only provide data when they are specifically called by a client.
+
+ There can be many service clients using the same service. But there can only be one service server for a service.
+
  Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
+
+A finite-state machine (FSM) or finite-state automaton (FSA), finite automaton, or simply a state machine, is a mathematical model of computation. It is an abstract machine that can be in exactly one of a finite number of states at any given time. The FSM can change from one state to another in response to some inputs; the change from one state to another is called a transition. 
 
 A state is a description of the status of a system that is waiting to execute a transition.
 A transition is a set of actions to be executed when a condition is fulfilled or when an event is received.
 It is also possible to associate actions with a state:
-an entry action: performed when entering the state, and
-an exit action: performed when exiting the state.
+- an entry action: performed when entering the state, and
+- an exit action: performed when exiting the state.
+
+Required tags in *package.xml*: <name>, <version>, <description>, <maintainer>, <license> 
+Any package contains a *CMakeLists.txt* file that describe how to build the code and where to install it to.
+
+ros2 bag is a ROS command line tool for recording data published on topics in your system. It accumulates the data passed on any number of topics and saves it in a database. You can then replay the data to reproduce the results of your tests and experiments. Recording topics is also a great way to share your work and allow others to recreate it.
+
+Robot systems must work to achieve tasks while monitoring for, and reacting to unexpected situations.
+Robot software systems tend to be complex: *The need to control actuators in real time. *Noise.
+A ROS package is an organizational unit for your ROS code.
+
+The "architectural style" of a system is the computational concepts that underlie a given system 
+
+RVIZ is a ROS graphical interface that allows you to visualize a lot of information, using plugins for many kinds of available topics. RVIZ2 is simply a port of RVIZ into ROS2.
+RQt is a graphical user interface framework that implements various tools and interfaces as plugins. 
+
+Order the ROS 2's logger levels by severity -> 1. [Fatal] (most severe) 2. [Error] 3. [Warn] 4. [Info] 5. [Debug] (least severe)
+
+A node may publish data to any number of topics and simultaneously be subscribed to any number of topics.
