@@ -31,6 +31,14 @@
 - ros2 run obstacles detector --ros-args -r __ns:=/left --param obs_angle_min:=0.3927 (ejecuta el detector izquierdo)
 - ros2 param list (te dice el nodo ejecutado y dentro de ese, los parámetros, ej: /ftont/detector:obs_angle_max,min...)
 - ros2 interface show turtlesim/action/RotateAbsolute -> float32 delta: the result, float32 theta: the goal request, float32 remaining: the feedback
+- ros2 action info /turtle1/rotate_absolute (devuelve la action, action client y server)
+- ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback (see the feedback of this goal)
+
+- ros2 run tf2_tools view_frames (recorded time,broadcaster,average rate,buffer length,most recent transform, oldest transform)
+- ros2 run tf2_ros tf2_echo [reference_frame] [target_frame] (tf2_echo reports the transform 
+between any two frames broadcasted over ROS)
+- rosdep install -i --from-path src --rosdistro foxy -y (check for missing dependencies)
+- ros2 service call /spawn turtlesim/srv/Spawn "{x: 2.0, y: 2.0, theta: 0.0, name: 'turtle2'}" (Spawn a second turtle)
 
 Write the command for sending an action goal for rotating the turtle towards a desired heading of 90 ->
 rost action [send_goal] /turtle1/[rutate_sbsolute) turtlesin/action/[RotateAbsolute) "(theta: [(1.57])"
@@ -47,49 +55,3 @@ ros2 param dump <node_name>
 
 LAUNCH: return(Node(package,executable,remappings,parameters))
 
-ROS ACTIONS ->
-Actions are built on (topics) and services. Their functionality is similar to [services), except actions are (preemptable) (you can cancel them while executing). They also provide steady [feedback) as opposed to services which return a single (response)
-
-ROS SERVICES ->
-    "subscriber <- topic <- publisher" (message va desde publisher a subscriber)
-    "[request messsage -> service client] -> service: request -> service server ->service: response -> service client"
-
- Sensors->perception->modelling->planning->task execution->motor control->Actuators
- 
- Planning = persistent state and choices (long-range, high-level goals, replannig, missions/tasks)
- Executive = memory of immediate actions (decomposition. arbitration, monitoring, error recovery)
- Behavioral control = limited state (situated, cognizant failure, speed, reactivty)
-
- Services are another method of communication for nodes in the ROS graph. Services are based on a call-and-response model
- versus the publisher-subscriber model of topics. While topics allow nodes to subscribe to data streams and get continual 
- updates, services only provide data when they are specifically called by a client.
-
- There can be many service clients using the same service. But there can only be one service server for a service.
-
- Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
-
-A finite-state machine (FSM) or finite-state automaton (FSA), finite automaton, or simply a state machine, is a mathematical model of computation. It is an abstract machine that can be in exactly one of a finite number of states at any given time. The FSM can change from one state to another in response to some inputs; the change from one state to another is called a transition. 
-
-A state is a description of the status of a system that is waiting to execute a transition.
-A transition is a set of actions to be executed when a condition is fulfilled or when an event is received.
-It is also possible to associate actions with a state:
-- an entry action: performed when entering the state, and
-- an exit action: performed when exiting the state.
-
-Required tags in *package.xml*: <name>, <version>, <description>, <maintainer>, <license> 
-Any package contains a *CMakeLists.txt* file that describe how to build the code and where to install it to.
-
-ros2 bag is a ROS command line tool for recording data published on topics in your system. It accumulates the data passed on any number of topics and saves it in a database. You can then replay the data to reproduce the results of your tests and experiments. Recording topics is also a great way to share your work and allow others to recreate it.
-
-Robot systems must work to achieve tasks while monitoring for, and reacting to unexpected situations.
-Robot software systems tend to be complex: *The need to control actuators in real time. *Noise.
-A ROS package is an organizational unit for your ROS code.
-
-The "architectural style" of a system is the computational concepts that underlie a given system 
-
-RVIZ is a ROS graphical interface that allows you to visualize a lot of information, using plugins for many kinds of available topics. RVIZ2 is simply a port of RVIZ into ROS2.
-RQt is a graphical user interface framework that implements various tools and interfaces as plugins. 
-
-Order the ROS 2's logger levels by severity -> 1. [Fatal] (most severe) 2. [Error] 3. [Warn] 4. [Info] 5. [Debug] (least severe)
-
-A node may publish data to any number of topics and simultaneously be subscribed to any number of topics.
