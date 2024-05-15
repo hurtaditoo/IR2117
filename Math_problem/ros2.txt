@@ -1,0 +1,92 @@
+Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
+A ROS package is an organizational unit for your ROS code.
+-----
+ROS ACTIONS -> Actions are one of the communication types in ROS 2 and are intended for long running tasks. They consist of three parts: a goal, feedback, and a result. Actions are built on topics and services. Their functionality is similar to services, except actions are preemptable (you can cancel them while executing). They also provide steady feedback, as opposed to services which return a single response.
+
+Actions use a client-server model. An “action client” node sends a goal request to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
+
+Actions are like services that allow you to execute long running tasks, provide regular feedback, and are cancelable. A robot system would likely use actions for navigation. An action goal could tell a robot to travel to a position. While the robot navigates to the position, it can send feedback along the way, and then a final result message once it’s reached its destination.
+
+An action definition is made up of three message definitions separated by ---.
+*A request message is sent from an action client to an action server initiating a new goal.
+*A result message is sent from an action server to an action client when a goal is done.
+*Feedback messages are periodically sent from an action server to an action client with updates about a goal.
+An instance of an action is typically referred to as a goal.
+-----
+ROS SERVICES ->
+    "subscriber <- topic <- publisher" (message va desde publisher a subscriber)
+    "[request messsage -> service client] -> service: request -> service server ->service: response -> service client"
+
+ Sensors->perception->modelling->planning->task execution->motor control->Actuators
+ 
+ Planning = persistent state and choices (long-range, high-level goals, replannig, missions/tasks)
+ Executive = memory of immediate actions (decomposition. arbitration, monitoring, error recovery)
+ Behavioral control = limited state (situated, cognizant failure, speed, reactivty)
+
+ Services are another method of communication for nodes in the ROS graph. Services are based on a call-and-response model versus the publisher-subscriber model of topics. While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
+
+ There can be many service clients using the same service. But there can only be one service server for a service.
+
+ Services have types that describe how the request and response data of a service is structured. Service types are defined similarly to topic types, except service types have two parts: one message for the request and another for the response.
+ 
+ Nodes can communicate using services in ROS 2. Unlike a topic - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a response. You generally don’t want to use a service for continuous calls; topics or even actions would be better suited.
+
+ A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics. Topics don’t have to only be one-to-one communication; they can be one-to-many, many-to-one, or many-to-many.
+-----
+PARAMETERS -> A parameter is a configuration value of a node. You can think of parameters as node settings. A node can store parameters as integers, floats, booleans, strings, and lists. In ROS 2, each node maintains its own parameters. 
+-----
+SERVICE AND CLIENT -> When nodes communicate using services, the node that sends a request for data is called the client node, and the one that responds to the request is the service node. The structure of the request and response is determined by a .srv file.
+-----
+A finite-state machine (FSM) or finite-state automaton (FSA), finite automaton, or simply a state machine, is a mathematical model of computation. It is an abstract machine that can be in exactly one of a finite number of states at any given time. The FSM can change from one state to another in response to some inputs; the change from one state to another is called a transition. 
+
+A state is a description of the status of a system that is waiting to execute a transition.
+A transition is a set of actions to be executed when a condition is fulfilled or when an event is received.
+It is also possible to associate actions with a state:
+- an entry action: performed when entering the state, and
+- an exit action: performed when exiting the state.
+-----
+Required tags in *package.xml*: <name>, <version>, <description>, <maintainer>, <license> 
+Any package contains a *CMakeLists.txt* file that describe how to build the code and where to install it to.
+-----
+ros2 bag -> is a ROS command line tool for recording data published on topics in your system. It accumulates the data passed on any number of topics and saves it in a database. You can then replay the data to reproduce the results of your tests and experiments. Recording topics is also a great way to share your work and allow others to recreate it.
+-----
+Robot systems must work to achieve tasks while monitoring for, and reacting to unexpected situations. Robot software systems tend to be complex: *The need to control actuators in real time. *Noise.
+-----
+The "architectural style" of a system is the computational concepts that underlie a given system. 
+-----
+RVIZ -> is a ROS graphical interface that allows you to visualize a lot of information, using plugins for many kinds of available topics. RVIZ2 is simply a port of RVIZ into ROS2.
+RQt is a graphical user interface framework that implements various tools and interfaces as plugins. 
+-----
+rqt_console -> is a GUI tool used to introspect log messages in ROS 2. Typically, log messages show up in your terminal. With rqt_console, you can collect those messages over time, view them closely and in a more organized manner, filter them, save them and even reload the saved files to introspect at a different time.
+-----
+Order the ROS 2's logger levels by severity -> 1. [Fatal] (most severe) 2. [Error] 3. [Warn] 4. [Info] 5. [Debug] (least severe)
+-----
+ROS 2 INTERFACES ->.msg files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
+.srv files describe a service. They are composed of two parts: a request and a response. The request and response are message declarations.
+.action files describe actions. They are composed of three parts: a goal, a result, and feedback. Each part is a message declaration itself.
+-----
+Robotic systems are composed of many moving parts. It is necessary to have mathematical and programming tools that allow to keep track of the  positions of every component and to compute the spatial relations between any of them. 
+-----
+COORDINATE FRAMES -> Every rigid body is assigned a reference frame A reference frame is composed of an origin point and two (2D) or three (3D) mutually normal unitary vectors. The positions of all the points of the rigid object are fixed w.r.t. its reference frame.
+
+A frame is always defined relatively to another frame. The relation between two frames is a TRANSFORMATION.
+-----
+LAUNCH FILE -> The launch system in ROS 2 is responsible for helping the user describe the configuration of their system and then execute it as described. The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS-specific conventions which make it easy to reuse components throughout the system by giving them each a different configuration. It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
+-----
+TRANSFORMATIONS CHAINS -> Commonly transformations are defined as chains. 
+-----
+/map->/odom->/base_link->/chassis(izq:/sonar_front,/sonar_rear,/horizontal_bar_lrf,/laser)(der:/wheel_sx_front,/wheel_sx_rear,/wheel_dx_front,/wheel_sx_rear)->/horizontal_bar_kinect->/kinect->/openni_camera(izq:/openni_depth_frame->/openni_depth_optical_frame)(der:/openni_rgb_frame->/openni_rgb_optical_frame)
+-----
+TF2 -> TF2 is built on top of topics. The transformation tree is unique. Broadcaster nodes: publish and update  transforms. Listener nodes: Keep an updated  copy of the whole transformation tree. TF2 library is in charge of the broadcasting. Transforms are static or dynamic (change with time). TF2 functions allow to compute the transformation between each pair of frames of the tree.
+
+Each transform message contains: relation father to child, timestamp of the transform, translation as Vector3, rotation as a quaternion. A quaternion is a 4-tuple representation of orientation, which is more concise than a rotation matrix. Quaternions are very efficient for analyzing situations where rotations in three dimensions are involved. Quaternions are used widely in robotics, quantum mechanics, computer vision, and 3D animation.
+
+Publishing static transforms is useful to define the relationship between a robot base and its sensors or non-moving parts. For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
+
+tf2 builds up a tree structure of frames and, thus, does not allow a closed loop in the frame structure. This means that a frame only has one single parent, but it can have multiple children. Currently, our tf2 tree contains three frames: world, turtle1 and turtle2. The two turtle frames are children of the world frame. If we want to add a new frame to tf2, one of the three existing frames needs to be the parent frame, and the new one will become its child frame.
+-----
+URDF (Unified Robot Description Format) is a file format for specifying the geometry and organization of robots in ROS.
+-----
+ROSDEP -> rosdep is ROS’s dependency management utility that can work with ROS packages and external libraries. rosdep is a command-line utility for identifying and installing dependencies to build or install a package. It can be or is invoked when: *Building a workspace and needing appropriate dependencies to build the packages within. *Install packages (e.g. sudo apt install ros-foxy-demo-nodes-cpp) to check the dependencies needed for it to execute.
+It has the ability to work over a single package or over a directory of packages (e.g. workspace).
+-----
