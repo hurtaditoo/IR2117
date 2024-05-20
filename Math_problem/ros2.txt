@@ -1,6 +1,9 @@
 Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
 A ROS package is an organizational unit for your ROS code.
 -----
+A Topic is a name with an associated Message type.
+Publishers publish new Messages onto the Topic and any Subscribers that have subscribed to the same Topic (and with the same Message type) will receive those messages asynchronously.
+-----
 ROS ACTIONS -> Actions are one of the communication types in ROS 2 and are intended for long running tasks. They consist of three parts: a goal, feedback, and a result. Actions are built on topics and services. Their functionality is similar to services, except actions are preemptable (you can cancel them while executing). They also provide steady feedback, as opposed to services which return a single response.
 
 Actions use a client-server model. An “action client” node sends a goal request to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
@@ -50,9 +53,11 @@ Any package contains a *CMakeLists.txt* file that describe how to build the code
 -----
 ros2 bag -> is a ROS command line tool for recording data published on topics in your system. It accumulates the data passed on any number of topics and saves it in a database. You can then replay the data to reproduce the results of your tests and experiments. Recording topics is also a great way to share your work and allow others to recreate it.
 -----
-Robot systems must work to achieve tasks while monitoring for, and reacting to unexpected situations. Robot software systems tend to be complex: *The need to control actuators in real time. *Noise.
+Robot Architectures and Programming ->
+Robot software systems tend to be complex. This complexity is due, in large part, to the need to control diverse sensors and actuators in real time, in the face of significant uncertainty and noise. Robot systems must work to achieve tasks while monitoring for, and reacting to, unexpected situations.
 -----
 The "architectural style" of a system is the computational concepts that underlie a given system. 
+The "architectural structure" is how a system is divided into subsystems and how those subsystems interact.
 -----
 RVIZ -> is a ROS graphical interface that allows you to visualize a lot of information, using plugins for many kinds of available topics. RVIZ2 is simply a port of RVIZ into ROS2.
 RQt is a graphical user interface framework that implements various tools and interfaces as plugins. 
@@ -86,6 +91,7 @@ Publishing static transforms is useful to define the relationship between a robo
 tf2 builds up a tree structure of frames and, thus, does not allow a closed loop in the frame structure. This means that a frame only has one single parent, but it can have multiple children. Currently, our tf2 tree contains three frames: world, turtle1 and turtle2. The two turtle frames are children of the world frame. If we want to add a new frame to tf2, one of the three existing frames needs to be the parent frame, and the new one will become its child frame.
 -----
 URDF (Unified Robot Description Format) is a file format for specifying the geometry and organization of robots in ROS.
+Types of joints: continuous, revolute and prismatic.
 -----
 ROSDEP -> rosdep is ROS’s dependency management utility that can work with ROS packages and external libraries. rosdep is a command-line utility for identifying and installing dependencies to build or install a package. It can be or is invoked when: *Building a workspace and needing appropriate dependencies to build the packages within. *Install packages (e.g. sudo apt install ros-foxy-demo-nodes-cpp) to check the dependencies needed for it to execute.
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
