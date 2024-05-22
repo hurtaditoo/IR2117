@@ -30,6 +30,9 @@ ament_target_dependencies(square rclcpp geometry_msgs)
 add_executable(polygon src/polygon.cpp)
 ament_target_dependencies(polygon rclcpp geometry_msgs)
 
+add_executable(spiral src/spiral.cpp)
+ament_target_dependencies(spiral rclcpp geometry_msgs)
+
 add_executable(square_odom src/square_odom.cpp)
 ament_target_dependencies(square_odom rclcpp geometry_msgs nav_msgs)
 
@@ -42,6 +45,7 @@ install(DIRECTORY launch
 install(TARGETS
 	square
   polygon
+  spiral
 	square_odom
 	wandering
 	DESTINATION lib/${PROJECT_NAME}
