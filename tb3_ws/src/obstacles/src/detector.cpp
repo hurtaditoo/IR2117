@@ -32,7 +32,7 @@ void callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
 int main(int argc, char *argv[])
 {
  	rclcpp::init(argc, argv);
-  auto node = rclcpp::Node::make_shared("detector");
+  	auto node = rclcpp::Node::make_shared("detector");
 	auto subscription = node->create_subscription<sensor_msgs::msg::LaserScan>("/scan", 10, callback);
 	publisher = node->create_publisher<example_interfaces::msg::Bool>("obstacle", 10);
  	node->declare_parameter("obs_angle_min", -M_PI/8);
@@ -43,5 +43,5 @@ int main(int argc, char *argv[])
  	obs_threshold = node->get_parameter("obs_threshold").get_parameter_value().get<double>();
  	rclcpp::spin(node);
  	rclcpp::shutdown();
-  return 0;
+  	return 0;
 }

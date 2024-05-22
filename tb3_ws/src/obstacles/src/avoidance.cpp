@@ -50,48 +50,48 @@ int main(int argc, char * argv[])
     geometry_msgs::msg::Twist message;
     rclcpp::WallRate loop_rate(50ms);
    
-		while (rclcpp::ok()) 
+	while (rclcpp::ok()) 
+	{
+		random = std::rand() % 2;
+		switch (state) 
 		{
-		  random = std::rand() % 2;
-			switch (state) 
-			{
-				case forward:				
-					message.linear.x = 0.3;
-					message.angular.z = 0.0;
-					if (obstacle_front) {
-						if (obstacle_left && !obstacle_right) {
-							state = turn_right;
-						} else if (obstacle_right && !obstacle_left) {
-							state = turn_left;
-						} else
-						{
-							if (random) state = turn_left;
-							if (!random) state = turn_right;
-						}
+			case forward:				
+				message.linear.x = 0.3;
+				message.angular.z = 0.0;
+				if (obstacle_front) {
+					if (obstacle_left && !obstacle_right) {
+						state = turn_right;
+					} else if (obstacle_right && !obstacle_left) {
+						state = turn_left;
+					} else
+					{
+						if (random) state = turn_left;
+						if (!random) state = turn_right;
 					}
-					break;
-					
-				case turn_left:		
-					message.linear.x = 0.0;
-					message.angular.z = 0.3;
-					if (!obstacle_front) {
+				}
+				break;
+				
+			case turn_left:		
+				message.linear.x = 0.0;
+				message.angular.z = 0.3;
+				if (!obstacle_front) {
+					state = forward;
+				}
+				break;
+				
+			case turn_right:			
+				message.linear.x = 0.0;
+				message.angular.z = -0.3;
+				if (!obstacle_front) {
 						state = forward;
-					}
-					break;
-					
-				case turn_right:			
-					message.linear.x = 0.0;
-					message.angular.z = -0.3;
-					if (!obstacle_front) {
-							state = forward;
-					}
-					break;
-			}
-			
-			publisher->publish(message);
-      rclcpp::spin_some(node);
-      loop_rate.sleep();
+				}
+				break;
 		}
+			
+		publisher->publish(message);
+      	rclcpp::spin_some(node);
+      	loop_rate.sleep();
+	}
 
     rclcpp::shutdown();
     return 0;
